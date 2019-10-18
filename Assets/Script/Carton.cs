@@ -9,11 +9,12 @@ public class Carton : MonoBehaviour
     public GameObject GameObjectSelect;
     public GameObject GameObjectCommande;
     public GameObject GameObjectContenu;
-    public int NextContenu = 0;
+    public bool newElement = false;
+    private int NextContenu = 0;
     private string[] element = new string[] { "tee-shirt", "pantalon", "chemise" };
     private int nbElement;
     private string[] elementToCharge;
-    private string[] chargeElement = new string[] { "tee-shirt" };
+    public List<string> chargeElement = new List<string>();
     private string commande = "Commande:";
     private string contenu = "Contenu:";
     private bool selected;
@@ -29,7 +30,6 @@ public class Carton : MonoBehaviour
             elementToCharge[i] = element[Random.Range(0, 2)];
             commande += "\n" + elementToCharge[i];
         }
-        AddContenu();
     }
 
     // Update is called once per frame
@@ -37,6 +37,10 @@ public class Carton : MonoBehaviour
     {
         if (GameObjectNiveau.name == "Niveau1") {
             transform.localPosition += new Vector3(0.01f, 0, 0);
+        }
+        if (newElement) {
+            AddContenu();
+            newElement = false;
         }
         if (GameObjectSelect.GetComponent<Text>().text != gameObject.name) {
             selected = false;
@@ -65,11 +69,13 @@ public class Carton : MonoBehaviour
             bool findElement = false;
             bool goodBox = true;
 
-            for (int i = 0; i < chargeElement.Length; i++) {
-                for (int j = 0; j < elementToCharge.Length; j++) {
-                    if (chargeElement[i] == elementToCharge[j]) {
+            if (chargeElement.Count == 0)
+                goodBox = false;
+            foreach (string element in chargeElement) {
+                for (int i = 0; i < elementToCharge.Length; i++) {
+                    if (element == elementToCharge[i]) {
                         findElement = true;
-                        elementToCharge[j] = "done";
+                        elementToCharge[i] = "done";
                     }
                 }
                 if (!findElement) {

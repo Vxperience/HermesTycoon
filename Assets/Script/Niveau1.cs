@@ -43,7 +43,7 @@ public class Niveau1 : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
         if (GameObject.Find("ToDestroy")) {
-            if (timer > 2)
+            if (timer > 8)
             {
                 timer--;
             }
@@ -51,7 +51,8 @@ public class Niveau1 : MonoBehaviour
             GameObject Carton = new GameObject("Carton");
             Carton.transform.parent = GameObject.Find("ToDestroy").transform;
             Carton.AddComponent<SpriteRenderer>().sprite = BoxToCreate;
-            Carton.AddComponent<BoxCollider>();
+            Carton.AddComponent<BoxCollider>().size = new Vector3(20, 18, 1);
+            Carton.GetComponent<BoxCollider>().isTrigger = true;
             Carton.AddComponent<Rigidbody>().useGravity = false;
             Carton.AddComponent<Carton>().GameObjectNiveau = GameObjectNiveau;
             Carton.GetComponent<Carton>().GameObjectSelect = GameObjectSelect;
@@ -69,7 +70,7 @@ public class Niveau1 : MonoBehaviour
         reset = false;
         nbCarton = 5;
         nbErreur = 3;
-        timer = 5;
+        timer = 8;
 
         if (GameObject.Find("ToDestroy"))
             Destroy(GameObject.Find("ToDestroy"));
