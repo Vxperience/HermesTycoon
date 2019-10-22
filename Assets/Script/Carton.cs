@@ -23,7 +23,7 @@ public class Carton : MonoBehaviour
     void Start()
     {
         selected = false;
-        nbElement = Random.Range(1, 1);
+        nbElement = Random.Range(1, 5);
         elementToCharge = new string[nbElement];
         for (int i = 0; i < nbElement; i++)
         {
@@ -51,15 +51,20 @@ public class Carton : MonoBehaviour
 
     private void OnMouseUp()
     {
-        selected = !selected;
-        if (selected) {
-            GameObjectSelect.GetComponent<Text>().text = gameObject.name;
-            GameObjectContenu.GetComponent<Text>().text = contenu;
-            GameObjectCommande.GetComponent<Text>().text = commande;
-        } else {
-            GameObjectSelect.GetComponent<Text>().text = "";
-            GameObjectContenu.GetComponent<Text>().text = "";
-            GameObjectCommande.GetComponent<Text>().text = "";
+        if (GameObjectSelect.GetComponent<Text>().text != "Personnage") {
+            selected = !selected;
+            if (selected)
+            {
+                GameObjectSelect.GetComponent<Text>().text = gameObject.name;
+                GameObjectContenu.GetComponent<Text>().text = contenu;
+                GameObjectCommande.GetComponent<Text>().text = commande;
+            }
+            else
+            {
+                GameObjectSelect.GetComponent<Text>().text = "";
+                GameObjectContenu.GetComponent<Text>().text = "";
+                GameObjectCommande.GetComponent<Text>().text = "";
+            }
         }
     }
 
@@ -76,6 +81,7 @@ public class Carton : MonoBehaviour
                     if (element == elementToCharge[i]) {
                         findElement = true;
                         elementToCharge[i] = "done";
+                        break;
                     }
                 }
                 if (!findElement) {
@@ -84,9 +90,9 @@ public class Carton : MonoBehaviour
                 findElement = false;
             }
             if (goodBox) {
-                GameObjectNiveau.GetComponent<Niveau1>().nbCarton--;
+                GameObjectNiveau.GetComponent<Niveau>().nbCarton++;
             } else {
-                GameObjectNiveau.GetComponent<Niveau1>().nbErreur--;
+                GameObjectNiveau.GetComponent<Niveau>().nbErreur--;
             }
             if (selected) {
                 GameObjectSelect.GetComponent<Text>().text = "";
