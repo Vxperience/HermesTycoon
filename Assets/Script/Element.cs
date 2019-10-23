@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Element : MonoBehaviour
 {
+    public GameObject spawner;
     private bool selected;
 
     // Start is called before the first frame update

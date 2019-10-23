@@ -19,8 +19,7 @@ public class Personnage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.name == "Personnage")
-        {
+        if (gameObject.name == "Personnage") {
             transform.localRotation = Quaternion.Euler(90, 0, 0);
             if (GameObject.Find("select").GetComponent<Text>().text != gameObject.name) {
                 GameObject.Find("item").GetComponent<Text>().text = "";
@@ -37,11 +36,12 @@ public class Personnage : MonoBehaviour
                     
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100) && hit.transform.gameObject.name != "Personnage") {
                         gameObject.GetComponent<NavMeshAgent>().destination = hit.point;
-                        if (hit.transform.gameObject.tag == "Element" && item == "" && isInAction == false) {
+                        if (hit.transform.gameObject.tag == "Element" && item == "" && isInAction == false)
+                        {
                             isInAction = true;
                             StartCoroutine(goPickElement(hit));
                         }
-                        if (hit.transform.gameObject.name == "Carton" && item != "" && isInAction == false)
+                        else if (hit.transform.gameObject.name == "Carton" && item != "" && isInAction == false)
                         {
                             isInAction = true;
                             StartCoroutine(goDropElement(hit));
@@ -60,6 +60,7 @@ public class Personnage : MonoBehaviour
             yield return new WaitForSeconds(1);
             if (hit.transform.gameObject) {
                 item = hit.transform.gameObject.name;
+                hit.transform.gameObject.GetComponent<Element>().spawner.GetComponent<SpawnElement>().isPicked = true;
                 Destroy(hit.transform.gameObject);
                 isInAction = false;
             }

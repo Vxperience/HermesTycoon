@@ -11,7 +11,7 @@ public class Carton : MonoBehaviour
     public GameObject GameObjectContenu;
     public bool newElement = false;
     private int NextContenu = 0;
-    private string[] element = new string[] { "tee-shirt", "pantalon", "chemise" };
+    private string[] element = new string[] {"tee-shirt", "pantalon", "chemise" , "chapeau", "manteau"};
     private int nbElement;
     private string[] elementToCharge;
     public List<string> chargeElement = new List<string>();
@@ -23,11 +23,11 @@ public class Carton : MonoBehaviour
     void Start()
     {
         selected = false;
-        nbElement = Random.Range(1, 5);
+        nbElement = Random.Range(1, 3);
         elementToCharge = new string[nbElement];
         for (int i = 0; i < nbElement; i++)
         {
-            elementToCharge[i] = element[Random.Range(0, 2)];
+            elementToCharge[i] = element[Random.Range(0, 4)];
             commande += "\n" + elementToCharge[i];
         }
     }
@@ -89,6 +89,9 @@ public class Carton : MonoBehaviour
                 }
                 findElement = false;
             }
+            for (int i = 0; i < elementToCharge.Length; i++)
+                if (elementToCharge[i] != "done")
+                    goodBox = false;
             if (goodBox) {
                 GameObjectNiveau.GetComponent<Niveau>().nbCarton++;
             } else {

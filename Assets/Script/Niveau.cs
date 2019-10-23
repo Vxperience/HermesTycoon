@@ -9,6 +9,7 @@ public class Niveau : MonoBehaviour
     public GameObject GameObjectSelect;
     public GameObject GameObjectCommande;
     public GameObject GameObjectContenu;
+    public GameObject Player1;
     public Sprite BoxToCreate;
     public bool isEndless;
     public bool reset = false;
@@ -36,6 +37,7 @@ public class Niveau : MonoBehaviour
             }
             else
                 GameObject.Find("endMessage").GetComponent<Text>().text = "";
+            GameObject.Find("info").GetComponent<Text>().text = "Nombre de carton remplis: " + nbCarton + " Nombre d'erreur restantes: " + nbErreur;
         }
         else {
             if (nbCarton >= 5 || nbErreur <= 0)
@@ -48,9 +50,8 @@ public class Niveau : MonoBehaviour
             }
             else
                 GameObject.Find("endMessage").GetComponent<Text>().text = "";
+            GameObject.Find("info").GetComponent<Text>().text = "Nombre de carton à remplir: " + nbCarton + " / 5 Nombre d'erreur restantes: " + nbErreur;
         }
-        GameObject.Find("nbCarton").GetComponent<Text>().text = nbCarton.ToString();
-        GameObject.Find("nbErreur").GetComponent<Text>().text = nbErreur.ToString();
     }
 
     IEnumerator CreateBox()
@@ -69,9 +70,10 @@ public class Niveau : MonoBehaviour
             Carton.GetComponent<Carton>().GameObjectSelect = GameObjectSelect;
             Carton.GetComponent<Carton>().GameObjectCommande = GameObjectCommande;
             Carton.GetComponent<Carton>().GameObjectContenu = GameObjectContenu;
-            Carton.transform.localPosition = new Vector3(-11, 0.05f, 4);
+            if (gameObject.name == "Niveau1")
+                Carton.transform.localPosition = new Vector3(-11, 0.05f, 3);
             Carton.transform.localScale = new Vector3(1.3f, 1.3f, 0);
-            Carton.transform.localRotation = Quaternion.Euler(90, 0, Random.Range(-10f, 10f));
+            Carton.transform.localRotation = Quaternion.Euler(90, 0, 0);
             StartCoroutine(CreateBox());
         }
     }
@@ -83,19 +85,27 @@ public class Niveau : MonoBehaviour
         nbErreur = 3;
         timer = 8;
 
+        if (gameObject.name == "Niveau1")
+            GameObject.Find("SpawnerTeeShirt").GetComponent<SpawnElement>().isPicked = true;
+        if (gameObject.name == "Niveau1")
+            GameObject.Find("SpawnerPantalon").GetComponent<SpawnElement>().isPicked = true;
+        if (gameObject.name == "Niveau1")
+            GameObject.Find("SpawnerChemise").GetComponent<SpawnElement>().isPicked = true;
+        if (gameObject.name == "Niveau1")
+            GameObject.Find("SpawnerManteau").GetComponent<SpawnElement>().isPicked = true;
+        if (gameObject.name == "Niveau1")
+            GameObject.Find("SpawnerChapeau").GetComponent<SpawnElement>().isPicked = true;
         GameObjectCommande.GetComponent<Text>().text = "";
         GameObjectContenu.GetComponent<Text>().text = "";
         GameObjectSelect.GetComponent<Text>().text = "";
         GameObject.Find("item").GetComponent<Text>().text = "";
-        if (isEndless) {
-            GameObject.Find("info").GetComponent<Text>().text = "Nombre de carton remplis:           Nombre d'erreur restantes:";
-        } else {
-            GameObject.Find("info").GetComponent<Text>().text = "Nombre de carton à remplir:     / 5   Nombre d'erreur restantes:";
-        }
         if (GameObject.Find("ToDestroy"))
             Destroy(GameObject.Find("ToDestroy"));
         GameObject ToDestroy = new GameObject("ToDestroy");
         ToDestroy.transform.parent = GameObjectNiveau.transform;
+        if (Player1)
+            if (gameObject.name == "Niveau1")
+                Player1.transform.localPosition = new Vector3(0, 0, 0);
         StartCoroutine(CreateBox());
     }
 }
