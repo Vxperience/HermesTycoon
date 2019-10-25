@@ -32,8 +32,8 @@ public class SpawnElement : MonoBehaviour
         Element.AddComponent<BoxCollider>().size = new Vector3(1, 1, 0.2f);
         Element.GetComponent<BoxCollider>().isTrigger = true;
         Element.AddComponent<Element>().spawner = transform.gameObject;
-        Element.transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 0.01f, transform.localPosition.z);
+        Element.transform.localPosition = new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z);
         Element.transform.localRotation = Quaternion.Euler(90, 0, 0);
-        Element.transform.localScale = new Vector3(1, 1, 0);
+        Element.transform.localScale = new Vector3(0, 0, 0);
     }
 }

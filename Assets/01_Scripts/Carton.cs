@@ -18,18 +18,24 @@ public class Carton : MonoBehaviour
     private string commande = "Commande:";
     private string contenu = "Contenu:";
     private bool selected;
+    private int path;
 
     // Start is called before the first frame update
     void Start()
     {
         selected = false;
-        nbElement = Random.Range(1, 3);
+        nbElement = Random.Range(1, 4);
         elementToCharge = new string[nbElement];
         for (int i = 0; i < nbElement; i++)
         {
-            elementToCharge[i] = element[Random.Range(0, 4)];
+            if (GameObjectNiveau.name == "Niveau2" && GameObjectNiveau.name == "Niveau3")
+                elementToCharge[i] = element[GetIntInRange(Random.Range(0, 5), 0, 5, new int[] { 3 })];
+            else
+                elementToCharge[i] = element[Random.Range(0, 5)];
             commande += "\n" + elementToCharge[i];
         }
+        if (GameObjectNiveau.name == "Niveau3")
+            path = Random.Range(1, 3);
     }
 
     // Update is called once per frame
@@ -37,6 +43,23 @@ public class Carton : MonoBehaviour
     {
         if (GameObjectNiveau.name == "Niveau1") {
             transform.localPosition += new Vector3(0.01f, 0, 0);
+        } else if (GameObjectNiveau.name == "Niveau2") {
+            transform.localPosition -= new Vector3(0, 0, 0.004f);
+        } else if (GameObjectNiveau.name == "Niveau3") {
+            if (transform.position.x >= -11 && transform.position.x <= -3.85)
+                transform.localPosition += new Vector3(0.01f, 0, 0);
+            else if (transform.position.x >= -3.85 && transform.position.x <= -3.5 && transform.position.z >= 0 && transform.position.z <= 2 && (path == 1 || path == 3))
+                transform.localPosition += new Vector3(0, 0, 0.004f);
+            else if (transform.position.x >= -3.85 && transform.position.x <= -3.5 && transform.position.z >= -2 && transform.position.z <= 0 && path == 2)
+                transform.localPosition -= new Vector3(0, 0, 0.004f);
+            else if ((transform.position.z >= 2 || transform.position.z <= -2) && transform.position.x >= -3.85 && transform.position.x <= 3.85)
+                transform.localPosition += new Vector3(0.01f, 0, 0);
+            else if (transform.position.x >= 3.85 && transform.position.z <= 2.5 && transform.position.z >= 0 && (path == 1 || path == 3))
+                transform.localPosition -= new Vector3(0, 0, 0.004f);
+            else if (transform.position.x >= 3.85 && transform.position.z <= 0 && transform.position.z >= -2.5 && path == 2)
+                transform.localPosition += new Vector3(0, 0, 0.004f);
+            else if (transform.position.x >= 3.85 && transform.position.z <= 0.1 && transform.position.z >= -0.1)
+                transform.localPosition += new Vector3(0.01f, 0, 0);
         }
         if (newElement) {
             AddContenu();
@@ -51,7 +74,7 @@ public class Carton : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (GameObjectSelect.GetComponent<Text>().text != "Personnage") {
+        if (!GameObjectSelect.GetComponent<Text>().text.Contains("Personnage")) {
             selected = !selected;
             if (selected)
             {
@@ -110,5 +133,14 @@ public class Carton : MonoBehaviour
     {
         contenu += "\n" + chargeElement[NextContenu];
         NextContenu++;
+    }
+
+    int GetIntInRange(int res, int x, int y, int[] tab)
+    {
+        for (int i = 0; i < tab.Length; i++) {
+            if (res == tab[i])
+                return GetIntInRange(Random.Range(x, y), x, y, tab);
+        }
+        return res;
     }
 }

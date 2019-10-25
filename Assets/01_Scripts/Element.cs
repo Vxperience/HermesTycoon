@@ -17,6 +17,8 @@ public class Element : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (transform.localScale.x < 1)
+            transform.localScale += new Vector3(0.1f, 0.1f, 0);
         if (GameObject.Find("select").GetComponent<Text>().text != gameObject.name) {
             selected = false;
         }
@@ -24,7 +26,7 @@ public class Element : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (GameObject.Find("select").GetComponent<Text>().text != "Personnage") {
+        if (!GameObject.Find("select").GetComponent<Text>().text.Contains("Personnage")) {
             selected = !selected;
             if (selected) {
                 GameObject.Find("select").GetComponent<Text>().text = gameObject.name;
