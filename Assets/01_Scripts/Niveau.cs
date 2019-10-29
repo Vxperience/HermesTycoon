@@ -7,14 +7,17 @@ public class Niveau : MonoBehaviour
 {
     public GameObject GameObjectNiveau;
     public GameObject GameObjectSelect;
-    public GameObject GameObjectCommande;
-    public GameObject GameObjectContenu;
     public GameObject Player1;
     public GameObject Player2;
     public Sprite BoxToCreate1;
     public Sprite BoxToCreate2;
     public Sprite BoxToCreate3;
     public Sprite BoxToCreate4;
+    public Sprite TeeShirt;
+    public Sprite Pantalon;
+    public Sprite Chemise;
+    public Sprite Chapeau;
+    public Sprite Manteau;
     public bool isEndless;
     public bool reset = false;
     public int nbCarton;
@@ -50,7 +53,7 @@ public class Niveau : MonoBehaviour
                 if (nbCarton >= 5)
                     GameObject.Find("endMessage").GetComponent<Text>().text = "Good Job";
                 else
-                    GameObject.Find("endMessage").GetComponent<Text>().text = "You failed";
+                    GameObject.Find("endMessage").GetComponent<Text>().text = "Game Over";
                 Destroy(GameObject.Find("ToDestroy"));
             }
             else
@@ -81,8 +84,11 @@ public class Niveau : MonoBehaviour
             Carton.AddComponent<Rigidbody>().useGravity = false;
             Carton.AddComponent<Carton>().GameObjectNiveau = GameObjectNiveau;
             Carton.GetComponent<Carton>().GameObjectSelect = GameObjectSelect;
-            Carton.GetComponent<Carton>().GameObjectCommande = GameObjectCommande;
-            Carton.GetComponent<Carton>().GameObjectContenu = GameObjectContenu;
+            Carton.GetComponent<Carton>().TeeShirt = TeeShirt;
+            Carton.GetComponent<Carton>().Pantalon = Pantalon;
+            Carton.GetComponent<Carton>().Chemise = Chemise;
+            Carton.GetComponent<Carton>().Chapeau = Chapeau;
+            Carton.GetComponent<Carton>().Manteau = Manteau;
             if (gameObject.name == "Niveau1")
                 Carton.transform.localPosition = new Vector3(-11, 0.05f, -27);
             if (gameObject.name == "Niveau2")
@@ -115,10 +121,7 @@ public class Niveau : MonoBehaviour
             GameObject.Find("SpawnerManteau").GetComponent<SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1")
             GameObject.Find("SpawnerChapeau").GetComponent<SpawnElement>().isPicked = true;
-        GameObjectCommande.GetComponent<Text>().text = "";
-        GameObjectContenu.GetComponent<Text>().text = "";
         GameObjectSelect.GetComponent<Text>().text = "";
-        GameObject.Find("item").GetComponent<Text>().text = "";
         if (GameObject.Find("ToDestroy"))
             Destroy(GameObject.Find("ToDestroy"));
         GameObject ToDestroy = new GameObject("ToDestroy");

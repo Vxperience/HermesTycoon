@@ -7,8 +7,12 @@ public class Carton : MonoBehaviour
 {
     public GameObject GameObjectNiveau;
     public GameObject GameObjectSelect;
-    public GameObject GameObjectCommande;
-    public GameObject GameObjectContenu;
+    public List<GameObject> indicCommande = new List<GameObject>();
+    public Sprite TeeShirt;
+    public Sprite Pantalon;
+    public Sprite Chemise;
+    public Sprite Chapeau;
+    public Sprite Manteau;
     public bool newElement = false;
     private int NextContenu = 0;
     private string[] element = new string[] {"tee-shirt", "pantalon", "chemise" , "chapeau", "manteau"};
@@ -28,10 +32,28 @@ public class Carton : MonoBehaviour
         elementToCharge = new string[nbElement];
         for (int i = 0; i < nbElement; i++)
         {
-            if (GameObjectNiveau.name == "Niveau2" && GameObjectNiveau.name == "Niveau3")
+            if (GameObjectNiveau.name == "Niveau2" || GameObjectNiveau.name == "Niveau3")
                 elementToCharge[i] = element[GetIntInRange(Random.Range(0, 5), 0, 5, new int[] { 3 })];
             else
                 elementToCharge[i] = element[Random.Range(0, 5)];
+            GameObject indicElement = new GameObject();
+            indicElement.name = elementToCharge[i];
+            if (elementToCharge[i] == "tee-shirt")
+                indicElement.AddComponent<SpriteRenderer>().sprite = TeeShirt;
+            else if (elementToCharge[i] == "pantalon")
+                indicElement.AddComponent<SpriteRenderer>().sprite = Pantalon;
+            else if (elementToCharge[i] == "chemise")
+                indicElement.AddComponent<SpriteRenderer>().sprite = Chemise;
+            else if (elementToCharge[i] == "chapeau")
+                indicElement.AddComponent<SpriteRenderer>().sprite = Chapeau;
+            else if (elementToCharge[i] == "manteau")
+                indicElement.AddComponent<SpriteRenderer>().sprite = Manteau;
+            indicElement.transform.parent = gameObject.transform;
+            indicElement.transform.localPosition = new Vector3(0, 0, 0);
+            indicElement.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            indicElement.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            indicElement.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 0.5f);
+            indicCommande.Add(indicElement);
             commande += "\n" + elementToCharge[i];
         }
         if (GameObjectNiveau.name == "Niveau3")
@@ -67,8 +89,14 @@ public class Carton : MonoBehaviour
         }
         if (GameObjectSelect.GetComponent<Text>().text != gameObject.name) {
             selected = false;
-            GameObjectContenu.GetComponent<Text>().text = "";
-            GameObjectCommande.GetComponent<Text>().text = "";
+        }
+        float x = 0;
+        foreach (GameObject element in indicCommande) {
+            if (indicCommande.Count % 2 == 0)
+                element.transform.localPosition = new Vector3(x - (indicCommande.Count / 2) * 0.5f + 0.25f, -0.5f, 0);
+            else
+            element.transform.localPosition = new Vector3(x - (indicCommande.Count / 2) * 0.5f, -0.5f, 0);
+            x += 0.5f;
         }
     }
 
@@ -79,14 +107,10 @@ public class Carton : MonoBehaviour
             if (selected)
             {
                 GameObjectSelect.GetComponent<Text>().text = gameObject.name;
-                GameObjectContenu.GetComponent<Text>().text = contenu;
-                GameObjectCommande.GetComponent<Text>().text = commande;
             }
             else
             {
                 GameObjectSelect.GetComponent<Text>().text = "";
-                GameObjectContenu.GetComponent<Text>().text = "";
-                GameObjectCommande.GetComponent<Text>().text = "";
             }
         }
     }
@@ -122,8 +146,6 @@ public class Carton : MonoBehaviour
             }
             if (selected) {
                 GameObjectSelect.GetComponent<Text>().text = "";
-                GameObjectContenu.GetComponent<Text>().text = "";
-                GameObjectCommande.GetComponent<Text>().text = "";
             }
             Destroy(gameObject);
         }
@@ -131,8 +153,35 @@ public class Carton : MonoBehaviour
 
     void AddContenu()
     {
+        GameObject currentElement;
+
         contenu += "\n" + chargeElement[NextContenu];
         NextContenu++;
+        if (transform.Find(chargeElement[NextContenu - 1])) {
+            currentElement = transform.Find(chargeElement[NextContenu - 1]).gameObject;
+            currentElement.name = "done";
+            currentElement.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
+        } else {
+            currentElement = new GameObject();
+            currentElement.name = "wrong";
+
+            if (chargeElement[NextContenu - 1] == "tee-shirt")
+                currentElement.AddComponent<SpriteRenderer>().sprite = TeeShirt;
+            else if (chargeElement[NextContenu - 1] == "pantalon")
+                currentElement.AddComponent<SpriteRenderer>().sprite = Pantalon;
+            else if (chargeElement[NextContenu - 1] == "chemise")
+                currentElement.AddComponent<SpriteRenderer>().sprite = Chemise;
+            else if (chargeElement[NextContenu - 1] == "chapeau")
+                currentElement.AddComponent<SpriteRenderer>().sprite = Chapeau;
+            else if (chargeElement[NextContenu - 1] == "manteau")
+                currentElement.AddComponent<SpriteRenderer>().sprite = Manteau;
+            currentElement.transform.parent = gameObject.transform;
+            currentElement.transform.localPosition = new Vector3(0, 0, 0);
+            currentElement.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            currentElement.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            currentElement.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
+            indicCommande.Add(currentElement);
+        }
     }
 
     int GetIntInRange(int res, int x, int y, int[] tab)
