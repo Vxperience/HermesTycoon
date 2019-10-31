@@ -9,19 +9,18 @@ public class MenuInGame : MonoBehaviour
     public GameObject MenuToLoad;
     public AudioClip clic;
     private bool endlessness = false;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         gameObject.AddComponent<AudioSource>().clip = clic;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         gameObject.GetComponent<AudioSource>().volume = GameObject.Find("Main Camera").GetComponent<ChangeCamera>().game;
     }
 
+    // Activate the menu in game
     public void menuInGame()
     {
         gameObject.GetComponent<AudioSource>().Play();
@@ -30,6 +29,7 @@ public class MenuInGame : MonoBehaviour
         MenuToLoad.SetActive(true);
     }
 
+    // close the menu in game
     public void reprendre()
     {
         gameObject.GetComponent<AudioSource>().Play();
@@ -38,6 +38,7 @@ public class MenuInGame : MonoBehaviour
         MenuToLoad.SetActive(true);
     }
 
+    // Restart a level
     public void recommencer()
     {
         gameObject.GetComponent<AudioSource>().Play();
@@ -47,6 +48,7 @@ public class MenuInGame : MonoBehaviour
         MenuToLoad.SetActive(true);
     }
 
+    // Go back to the selection level menu
     public void choixNiveau()
     {
         gameObject.GetComponent<AudioSource>().Play();
@@ -56,6 +58,7 @@ public class MenuInGame : MonoBehaviour
         MenuToLoad.SetActive(true);
     }
 
+    // Go back to the main menu of the game
     public void menu()
     {
         gameObject.GetComponent<AudioSource>().Play();
@@ -64,6 +67,8 @@ public class MenuInGame : MonoBehaviour
         MenuToLoad.SetActive(true);
     }
 
+
+    // Launch a level
     public void launchGame()
     {
         gameObject.GetComponent<AudioSource>().Play();
@@ -73,6 +78,7 @@ public class MenuInGame : MonoBehaviour
         MenuToLoad.SetActive(true);
     }
 
+    // Set if the game will be endless or not
     public void endlessGame()
     {
         gameObject.GetComponent<AudioSource>().Play();

@@ -9,21 +9,20 @@ public class ChangeCamera : MonoBehaviour
     public GameObject Niveau2;
     public GameObject Niveau3;
     public GameObject Menu;
-    public float music;
-    public float game;
+    public float music; // Use to set the volume of the music audio element
+    public float game; // Use to set the volume of all audio element except the music
     private bool isaudio;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         music = 1;
         game = 1;
         isaudio = true;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
+        // Change the position of the camera to switch between the different level
         if (Niveau1.activeInHierarchy) {
             transform.localPosition = new Vector3(0, 5, -30);
             Menu.SetActive(false);
@@ -38,6 +37,8 @@ public class ChangeCamera : MonoBehaviour
             Menu.SetActive(true);
         }
         
+
+        // Interaction with the option menu
         if (GameObject.Find("SliderMusique")) {
             isaudio = GameObject.Find("Audio").GetComponent<Toggle>().isOn;
             if (isaudio) {

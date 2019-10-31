@@ -19,23 +19,24 @@ public class Carton : MonoBehaviour
     private int nbElement;
     private string[] elementToCharge;
     public List<string> chargeElement = new List<string>();
-    private string commande = "Commande:";
-    private string contenu = "Contenu:";
     private bool selected;
     private int path;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         selected = false;
+
+        // Create a random list of element to charge and the indications
         nbElement = Random.Range(1, 4);
         elementToCharge = new string[nbElement];
         for (int i = 0; i < nbElement; i++)
         {
+            // random element
             if (GameObjectNiveau.name == "Niveau2" || GameObjectNiveau.name == "Niveau3")
                 elementToCharge[i] = element[GetIntInRange(Random.Range(0, 5), 0, 5, new int[] { 3 })];
             else
                 elementToCharge[i] = element[Random.Range(0, 5)];
+            // indications
             GameObject indicElement = new GameObject();
             indicElement.name = elementToCharge[i];
             if (elementToCharge[i] == "tee-shirt")
@@ -54,15 +55,16 @@ public class Carton : MonoBehaviour
             indicElement.transform.localRotation = Quaternion.Euler(0, 0, 0);
             indicElement.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 0.5f);
             indicCommande.Add(indicElement);
-            commande += "\n" + elementToCharge[i];
         }
+
+        // If the level have multiple path for the box, He will be assign by a random
         if (GameObjectNiveau.name == "Niveau3")
             path = Random.Range(1, 3);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
+        // The move of the box
         if (GameObjectNiveau.name == "Niveau1") {
             transform.localPosition += new Vector3(0.01f, 0, 0);
         } else if (GameObjectNiveau.name == "Niveau2") {
@@ -83,13 +85,19 @@ public class Carton : MonoBehaviour
             else if (transform.position.x >= 3.85 && transform.position.z <= 0.1 && transform.position.z >= -0.1)
                 transform.localPosition += new Vector3(0.01f, 0, 0);
         }
+
+        // If the box have a new element
         if (newElement) {
             AddContenu();
             newElement = false;
         }
+
+        // Check if select
         if (GameObjectSelect.GetComponent<Text>().text != gameObject.name) {
             selected = false;
         }
+
+        // Display the indications and the element in the box
         float x = 0;
         foreach (GameObject element in indicCommande) {
             if (indicCommande.Count % 2 == 0)
@@ -102,21 +110,19 @@ public class Carton : MonoBehaviour
 
     private void OnMouseUp()
     {
+        // Check if a player is select before changed the select variable and indication in the game
         if (!GameObjectSelect.GetComponent<Text>().text.Contains("Personnage")) {
             selected = !selected;
             if (selected)
-            {
                 GameObjectSelect.GetComponent<Text>().text = gameObject.name;
-            }
             else
-            {
                 GameObjectSelect.GetComponent<Text>().text = "";
-            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        // Check if the box enter in the checkzone and proceed to the validation of the box or not. Change the score on the UI. Check if the box was select then destroy it
         if (other.name == "CheckZone") {
             bool findElement = false;
             bool goodBox = true;
@@ -131,31 +137,28 @@ public class Carton : MonoBehaviour
                         break;
                     }
                 }
-                if (!findElement) {
+                if (!findElement)
                     goodBox = false;
-                }
                 findElement = false;
             }
             for (int i = 0; i < elementToCharge.Length; i++)
                 if (elementToCharge[i] != "done")
                     goodBox = false;
-            if (goodBox) {
+            if (goodBox)
                 GameObjectNiveau.GetComponent<Niveau>().nbCarton++;
-            } else {
+            else
                 GameObjectNiveau.GetComponent<Niveau>().nbErreur--;
-            }
-            if (selected) {
+            if (selected)
                 GameObjectSelect.GetComponent<Text>().text = "";
-            }
             Destroy(gameObject);
         }
     }
 
     void AddContenu()
     {
+        // Add the new element to the box and update or create new indication of the element in the box
         GameObject currentElement;
-
-        contenu += "\n" + chargeElement[NextContenu];
+        
         NextContenu++;
         if (transform.Find(chargeElement[NextContenu - 1])) {
             currentElement = transform.Find(chargeElement[NextContenu - 1]).gameObject;
@@ -186,6 +189,7 @@ public class Carton : MonoBehaviour
 
     int GetIntInRange(int res, int x, int y, int[] tab)
     {
+        // Get a random int "res" between "x" and "y" with a array "tab" of value that the random will not be able to return
         for (int i = 0; i < tab.Length; i++) {
             if (res == tab[i])
                 return GetIntInRange(Random.Range(x, y), x, y, tab);

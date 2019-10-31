@@ -7,18 +7,19 @@ public class Element : MonoBehaviour
 {
     public GameObject spawner;
     private bool selected;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
 
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
+        // New element animation
         if (transform.localScale.x < 1)
             transform.localScale += new Vector3(0.1f, 0.1f, 0);
+        
+        // Check if the element is select
         if (GameObject.Find("select").GetComponent<Text>().text != gameObject.name) {
             selected = false;
         }
@@ -26,6 +27,7 @@ public class Element : MonoBehaviour
 
     private void OnMouseUp()
     {
+        // Detect the click and change the select variable and indication in the game
         if (!GameObject.Find("select").GetComponent<Text>().text.Contains("Personnage")) {
             selected = !selected;
             if (selected) {

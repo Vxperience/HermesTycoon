@@ -7,20 +7,19 @@ public class SpawnElement : MonoBehaviour
     public Sprite sprite;
     public string item;
     public bool isPicked = true;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
 
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (isPicked)
             StartCoroutine(createElement());
     }
 
+    // Create an initialised the new element
     IEnumerator createElement()
     {
         isPicked = false;

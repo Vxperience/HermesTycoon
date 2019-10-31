@@ -19,10 +19,10 @@ public class Personnage : MonoBehaviour
     private GameObject currentItem;
     private bool isInAction = false;
     private bool selected;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
+        // Configure the indication for when the player drag an item
         currentItem = new GameObject();
         currentItem.name = "Item";
         currentItem.transform.parent = gameObject.transform;
@@ -32,15 +32,23 @@ public class Personnage : MonoBehaviour
         currentItem.AddComponent<SpriteRenderer>();
         currentItem.SetActive(false);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
+        // Update the volume
         gameObject.GetComponent<AudioSource>().volume = GameObject.Find("Main Camera").GetComponent<ChangeCamera>().game;
         transform.localRotation = Quaternion.Euler(90, 0, 0);
+
+        // Check if select
         if (GameObject.Find("select").GetComponent<Text>().text != gameObject.name)
             selected = false;
         animator.SetBool("select", selected);
+
+        // Check if the player drag an item
+        if (item == "")
+            currentItem.SetActive(false);
+
+        // Manage The player movement and interaction
         if (selected) {
             if (Input.GetMouseButtonDown(0)) {
                 RaycastHit hit;
@@ -62,12 +70,11 @@ public class Personnage : MonoBehaviour
                 }
             }
         }
-        if (item == "")
-            currentItem.SetActive(false);
     }
 
     void animToDirection(RaycastHit hit)
     {
+        // Manage which animation the player will do
         float angle = Vector3.Angle(hit.point - transform.position, hit.transform.forward);
         
         if (hit.point.x - transform.position.x <= 0) {
@@ -97,6 +104,7 @@ public class Personnage : MonoBehaviour
 
     IEnumerator goToNewPosition(RaycastHit hit)
     {
+        // Manage the movement to a new position
         gameObject.GetComponent<AudioSource>().clip = footstep;
         gameObject.GetComponent<AudioSource>().loop = true;
         gameObject.GetComponent<AudioSource>().Play();
@@ -119,6 +127,7 @@ public class Personnage : MonoBehaviour
 
     IEnumerator goPickElement(RaycastHit hit)
     {
+        // Manage the pick interaction with an element
         gameObject.GetComponent<AudioSource>().clip = footstep;
         gameObject.GetComponent<AudioSource>().loop = true;
         gameObject.GetComponent<AudioSource>().Play();
@@ -161,6 +170,7 @@ public class Personnage : MonoBehaviour
 
     IEnumerator goDropElement(RaycastHit hit)
     {
+        // Manage the drop of an element in a box or trash
         gameObject.GetComponent<AudioSource>().clip = footstep;
         gameObject.GetComponent<AudioSource>().loop = true;
         gameObject.GetComponent<AudioSource>().Play();
@@ -194,6 +204,7 @@ public class Personnage : MonoBehaviour
 
     private void OnMouseUp()
     {
+        // Change the player select varibale and UI
         selected = !selected;
         if (selected)
             GameObject.Find("select").GetComponent<Text>().text = gameObject.name;

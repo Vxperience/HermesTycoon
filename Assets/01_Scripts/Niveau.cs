@@ -24,18 +24,19 @@ public class Niveau : MonoBehaviour
     public int nbErreur;
     private int timer;
     private int nbBoxSprite;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         ResetGame();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
+        // Check if the game as to be reset
         if (reset)
             ResetGame();
+
+        // Manage the endgame
         if (isEndless)
         {
             if (nbErreur <= 0) {
@@ -60,6 +61,7 @@ public class Niveau : MonoBehaviour
 
     IEnumerator CreateBox()
     {
+        // Create and initialised box
         yield return new WaitForSeconds(timer);
         if (GameObject.Find("ToDestroy")) {
             if (timer > 8)
@@ -99,6 +101,7 @@ public class Niveau : MonoBehaviour
 
     void ResetGame()
     {
+        // Reset the whole Level
         reset = false;
         nbCarton = 0;
         nbErreur = 3;
