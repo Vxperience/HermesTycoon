@@ -38,25 +38,21 @@ public class Niveau : MonoBehaviour
             ResetGame();
         if (isEndless)
         {
-            if (nbErreur <= 0)
-            {
+            if (nbErreur <= 0) {
                 GameObject.Find("endMessage").GetComponent<Text>().text = "Game Over";
                 Destroy(GameObject.Find("ToDestroy"));
-            }
-            else
+            } else
                 GameObject.Find("endMessage").GetComponent<Text>().text = "";
             GameObject.Find("info").GetComponent<Text>().text = "Nombre de carton remplis: " + nbCarton + " Nombre d'erreur restantes: " + nbErreur;
         }
         else {
-            if (nbCarton >= 5 || nbErreur <= 0)
-            {
+            if (nbCarton >= 5 || nbErreur <= 0) {
                 if (nbCarton >= 5)
                     GameObject.Find("endMessage").GetComponent<Text>().text = "Good Job";
                 else
                     GameObject.Find("endMessage").GetComponent<Text>().text = "Game Over";
                 Destroy(GameObject.Find("ToDestroy"));
-            }
-            else
+            } else
                 GameObject.Find("endMessage").GetComponent<Text>().text = "";
             GameObject.Find("info").GetComponent<Text>().text = "Nombre de carton à remplir: " + nbCarton + " / 5 Nombre d'erreur restantes: " + nbErreur;
         }
@@ -128,12 +124,17 @@ public class Niveau : MonoBehaviour
         ToDestroy.transform.parent = GameObjectNiveau.transform;
         if (gameObject.name == "Niveau1") {
             Player1.transform.localPosition = new Vector3(0, 0.05f, 0);
+            Player1.GetComponent<Personnage>().item = "";
         } else if (gameObject.name == "Niveau2") {
             Player1.transform.localPosition = new Vector3(-3, 0.05f, 0);
+            Player1.GetComponent<Personnage>().item = "";
             Player2.transform.localPosition = new Vector3(3, 0.05f, 0);
+            Player2.GetComponent<Personnage>().item = "";
         } else if (gameObject.name == "Niveau3") {
             Player1.transform.localPosition = new Vector3(0, 0.05f, -3.75f);
+            Player1.GetComponent<Personnage>().item = "";
             Player2.transform.localPosition = new Vector3(0, 0.05f, 3.75f);
+            Player2.GetComponent<Personnage>().item = "";
         }
         StartCoroutine(CreateBox());
     }

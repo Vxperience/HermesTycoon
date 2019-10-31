@@ -12,8 +12,11 @@ public class Personnage : MonoBehaviour
     public Sprite Chapeau;
     public Sprite Manteau;
     public Animator animator;
+    public AudioClip footstep;
+    public AudioClip pick;
+    public AudioClip drop;
+    public string item = "";
     private GameObject currentItem;
-    private string item = "";
     private bool isInAction = false;
     private bool selected;
 
@@ -33,6 +36,7 @@ public class Personnage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gameObject.GetComponent<AudioSource>().volume = GameObject.Find("Main Camera").GetComponent<ChangeCamera>().game;
         transform.localRotation = Quaternion.Euler(90, 0, 0);
         if (GameObject.Find("select").GetComponent<Text>().text != gameObject.name)
             selected = false;
@@ -58,6 +62,8 @@ public class Personnage : MonoBehaviour
                 }
             }
         }
+        if (item == "")
+            currentItem.SetActive(false);
     }
 
     void animToDirection(RaycastHit hit)
@@ -91,6 +97,9 @@ public class Personnage : MonoBehaviour
 
     IEnumerator goToNewPosition(RaycastHit hit)
     {
+        gameObject.GetComponent<AudioSource>().clip = footstep;
+        gameObject.GetComponent<AudioSource>().loop = true;
+        gameObject.GetComponent<AudioSource>().Play();
         if (gameObject.transform.position.x <= hit.point.x + 0.1 && gameObject.transform.position.x >= hit.point.x - 0.1 && gameObject.transform.position.z <= hit.point.z + 0.1 && gameObject.transform.position.z >= hit.point.z - 0.1) {
             isInAction = true;
             animator.SetBool("isArrived", true);
@@ -98,6 +107,7 @@ public class Personnage : MonoBehaviour
             animator.SetBool("goBackward", false);
             animator.SetBool("goRight", false);
             animator.SetBool("goLeft", false);
+            gameObject.GetComponent<AudioSource>().Stop();
             yield return new WaitForSeconds(0.1f);
             currentItem.transform.localPosition = new Vector3(0, -0.20f, -0.001f);
             isInAction = false;
@@ -109,6 +119,9 @@ public class Personnage : MonoBehaviour
 
     IEnumerator goPickElement(RaycastHit hit)
     {
+        gameObject.GetComponent<AudioSource>().clip = footstep;
+        gameObject.GetComponent<AudioSource>().loop = true;
+        gameObject.GetComponent<AudioSource>().Play();
         if (gameObject.transform.position.x <= hit.point.x + 0.5 && gameObject.transform.position.x >= hit.point.x - 0.5 && gameObject.transform.position.z <= hit.point.z + 0.5 && gameObject.transform.position.z >= hit.point.z - 0.5) {
             isInAction = true;
             animator.SetBool("isArrived", true);
@@ -116,9 +129,13 @@ public class Personnage : MonoBehaviour
             animator.SetBool("goBackward", false);
             animator.SetBool("goRight", false);
             animator.SetBool("goLeft", false);
+            gameObject.GetComponent<AudioSource>().Stop();
+            gameObject.GetComponent<AudioSource>().clip = pick;
+            gameObject.GetComponent<AudioSource>().loop = false;
             gameObject.GetComponent<NavMeshAgent>().destination = transform.position;
+            gameObject.GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(0.1f);
-            if (hit.transform.gameObject) {
+            if (GameObject.Find(hit.transform.gameObject.name)) {
                 item = hit.transform.gameObject.name;
                 hit.transform.gameObject.GetComponent<Element>().spawner.GetComponent<SpawnElement>().isPicked = true;
                 if (item == "tee-shirt")
@@ -144,6 +161,9 @@ public class Personnage : MonoBehaviour
 
     IEnumerator goDropElement(RaycastHit hit)
     {
+        gameObject.GetComponent<AudioSource>().clip = footstep;
+        gameObject.GetComponent<AudioSource>().loop = true;
+        gameObject.GetComponent<AudioSource>().Play();
         if ((gameObject.transform.position.x <= hit.point.x + 1.8 && gameObject.transform.position.x >= hit.point.x - 1.8 && gameObject.transform.position.z <= hit.point.z + 1.8 && gameObject.transform.position.z >= hit.point.z - 1.8 && hit.transform.gameObject.name == "Carton") || (gameObject.transform.position.x <= hit.point.x + 1.1 && gameObject.transform.position.x >= hit.point.x - 1.1 && gameObject.transform.position.z <= hit.point.z + 1.1 && gameObject.transform.position.z >= hit.point.z - 1.1 && hit.transform.gameObject.name == "Trash")) {
             isInAction = true;
             animator.SetBool("isArrived", true);
@@ -151,7 +171,11 @@ public class Personnage : MonoBehaviour
             animator.SetBool("goBackward", false);
             animator.SetBool("goRight", false);
             animator.SetBool("goLeft", false);
+            gameObject.GetComponent<AudioSource>().Stop();
+            gameObject.GetComponent<AudioSource>().clip = drop;
+            gameObject.GetComponent<AudioSource>().loop = false;
             gameObject.GetComponent<NavMeshAgent>().destination = transform.position;
+            gameObject.GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(0.1f);
             if (hit.transform.gameObject.name == "Carton") {
                 hit.transform.GetComponent<Carton>().chargeElement.Add(item);
