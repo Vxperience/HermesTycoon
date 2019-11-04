@@ -1,29 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ChangeScene : MonoBehaviour
 {
-    public GameObject GScene;
-    public GameObject GNewScene;
-    public GameObject Level;
+    public GameObject gScene;
+    public GameObject gNewScene;
     public AudioClip clic;
+    private GameObject mainCamera;
 
     void Start()
     {
+        mainCamera = GameObject.Find("Main Camera");
         gameObject.AddComponent<AudioSource>().clip = clic;
     }
     
     void Update()
     {
-        gameObject.GetComponent<AudioSource>().volume = GameObject.Find("Main Camera").GetComponent<ChangeCamera>().game;
+        gameObject.GetComponent<AudioSource>().volume = mainCamera.GetComponent<ChangeCamera>().game;
     }
 
     public void GoToNewScene()
     {
         // Change scene between two menu scene
         gameObject.GetComponent<AudioSource>().Play();
-        GScene.SetActive(false);
-        GNewScene.SetActive(true);
+        gScene.SetActive(false);
+        gNewScene.SetActive(true);
     }
 }

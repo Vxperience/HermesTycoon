@@ -246,9 +246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 1554733595}
-  CurrentMenuGame: {fileID: 1073126963}
-  MenuToLoad: {fileID: 1164315622}
+  currentGame: {fileID: 1554733595}
+  currentMenuGame: {fileID: 1073126963}
+  menuToLoad: {fileID: 1164315622}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &27893431
 MonoBehaviour:
@@ -294,7 +294,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 27893430}
-        m_MethodName: reprendre
+        m_MethodName: Reprendre
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -395,9 +395,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 305653641}
-  CurrentMenuGame: {fileID: 1344799781}
-  MenuToLoad: {fileID: 429137506}
+  currentGame: {fileID: 305653641}
+  currentMenuGame: {fileID: 1344799781}
+  menuToLoad: {fileID: 429137506}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &34951455
 MonoBehaviour:
@@ -443,7 +443,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 34951454}
-        m_MethodName: recommencer
+        m_MethodName: Recommencer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -998,9 +998,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 305653641}
-  CurrentMenuGame: {fileID: 1344799781}
-  MenuToLoad: {fileID: 1224925837}
+  currentGame: {fileID: 305653641}
+  currentMenuGame: {fileID: 1344799781}
+  menuToLoad: {fileID: 1224925837}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &93389985
 MonoBehaviour:
@@ -1046,7 +1046,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 93389984}
-        m_MethodName: choixNiveau
+        m_MethodName: ChoixNiveau
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2011,11 +2011,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a806f0c6a8c05894ea5f4419d33faf7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TeeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  Pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  Chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  Chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  Manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
+  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
+  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
+  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
+  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
   animator: {fileID: 146748841}
   footstep: {fileID: 8300000, guid: b0bb1b75d7543e44ba58adfb3f7dc100, type: 3}
   pick: {fileID: 8300000, guid: 0fba18fcca775984689ae864dfe79c77, type: 3}
@@ -3628,19 +3628,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c7d94540fea2642b9b1c6f9f408079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameObjectNiveau: {fileID: 305653641}
-  GameObjectSelect: {fileID: 1039416272}
-  Player1: {fileID: 785585405}
-  Player2: {fileID: 575150087}
-  BoxToCreate1: {fileID: 21300000, guid: 92f59e9f21d39e541a0ffcf879d0878d, type: 3}
-  BoxToCreate2: {fileID: 21300000, guid: d922bb5177475524b9ca9529286b0f2d, type: 3}
-  BoxToCreate3: {fileID: 21300000, guid: 1400310fe7accb74f9a6b8cb13e541f7, type: 3}
-  BoxToCreate4: {fileID: 21300000, guid: 8e3668f659d301c40aa3fdf5bc68ac1d, type: 3}
-  TeeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  Pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  Chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  Chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  Manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  gameObjectNiveau: {fileID: 305653641}
+  gameObjectSelect: {fileID: 1039416272}
+  player1: {fileID: 785585405}
+  player2: {fileID: 575150087}
+  boxToCreate1: {fileID: 21300000, guid: 92f59e9f21d39e541a0ffcf879d0878d, type: 3}
+  boxToCreate2: {fileID: 21300000, guid: d922bb5177475524b9ca9529286b0f2d, type: 3}
+  boxToCreate3: {fileID: 21300000, guid: 1400310fe7accb74f9a6b8cb13e541f7, type: 3}
+  boxToCreate4: {fileID: 21300000, guid: 8e3668f659d301c40aa3fdf5bc68ac1d, type: 3}
+  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
+  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
+  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
+  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
+  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
   isEndless: 0
   reset: 0
   nbCarton: 0
@@ -4324,7 +4324,7 @@ Transform:
   m_Children:
   - {fileID: 1299903077}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &406462985
 GameObject:
@@ -5791,10 +5791,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bacc6d0091ff544e8a62b0581341334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Niveau1: {fileID: 1554733595}
-  Niveau2: {fileID: 305653641}
-  Niveau3: {fileID: 1070898730}
-  Menu: {fileID: 404585299}
+  niveau1: {fileID: 1554733595}
+  niveau2: {fileID: 305653641}
+  niveau3: {fileID: 1070898730}
+  menu: {fileID: 404585299}
   music: 0
   game: 0
 --- !u!20 &519420031
@@ -6939,9 +6939,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 1070898730}
-  CurrentMenuGame: {fileID: 2014894126}
-  MenuToLoad: {fileID: 1350727343}
+  currentGame: {fileID: 1070898730}
+  currentMenuGame: {fileID: 2014894126}
+  menuToLoad: {fileID: 1350727343}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &573549634
 MonoBehaviour:
@@ -6987,7 +6987,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 573549633}
-        m_MethodName: menu
+        m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7155,11 +7155,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a806f0c6a8c05894ea5f4419d33faf7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TeeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  Pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  Chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  Chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  Manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
+  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
+  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
+  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
+  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
   animator: {fileID: 575150089}
   footstep: {fileID: 8300000, guid: b0bb1b75d7543e44ba58adfb3f7dc100, type: 3}
   pick: {fileID: 8300000, guid: 0fba18fcca775984689ae864dfe79c77, type: 3}
@@ -7436,9 +7436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d694e4c57e86dfb48a6813781119a761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GScene: {fileID: 2034447456}
-  GNewScene: {fileID: 2014894126}
-  Level: {fileID: 0}
+  gScene: {fileID: 2034447456}
+  gNewScene: {fileID: 2014894126}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &587459735
 MonoBehaviour:
@@ -9114,11 +9113,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a806f0c6a8c05894ea5f4419d33faf7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TeeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  Pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  Chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  Chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  Manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
+  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
+  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
+  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
+  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
   animator: {fileID: 707815541}
   footstep: {fileID: 8300000, guid: b0bb1b75d7543e44ba58adfb3f7dc100, type: 3}
   pick: {fileID: 8300000, guid: 0fba18fcca775984689ae864dfe79c77, type: 3}
@@ -9600,9 +9599,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 1554733595}
-  CurrentMenuGame: {fileID: 1073126963}
-  MenuToLoad: {fileID: 1350727343}
+  currentGame: {fileID: 1554733595}
+  currentMenuGame: {fileID: 1073126963}
+  menuToLoad: {fileID: 1350727343}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &734558549
 MonoBehaviour:
@@ -9648,7 +9647,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 734558548}
-        m_MethodName: menu
+        m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10260,11 +10259,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a806f0c6a8c05894ea5f4419d33faf7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TeeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  Pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  Chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  Chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  Manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
+  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
+  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
+  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
+  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
   animator: {fileID: 785585406}
   footstep: {fileID: 8300000, guid: b0bb1b75d7543e44ba58adfb3f7dc100, type: 3}
   pick: {fileID: 8300000, guid: 0fba18fcca775984689ae864dfe79c77, type: 3}
@@ -10947,9 +10946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d694e4c57e86dfb48a6813781119a761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GScene: {fileID: 1350727343}
-  GNewScene: {fileID: 509660968}
-  Level: {fileID: 0}
+  gScene: {fileID: 1350727343}
+  gNewScene: {fileID: 509660968}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!1 &852367714
 GameObject:
@@ -11348,9 +11346,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 305653641}
-  CurrentMenuGame: {fileID: 1344799781}
-  MenuToLoad: {fileID: 1350727343}
+  currentGame: {fileID: 305653641}
+  currentMenuGame: {fileID: 1344799781}
+  menuToLoad: {fileID: 1350727343}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &902063548
 MonoBehaviour:
@@ -11396,7 +11394,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 902063547}
-        m_MethodName: menu
+        m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12080,9 +12078,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 509660968}
-  CurrentMenuGame: {fileID: 429137506}
-  MenuToLoad: {fileID: 305653641}
+  currentGame: {fileID: 509660968}
+  currentMenuGame: {fileID: 429137506}
+  menuToLoad: {fileID: 305653641}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &962435051
 MonoBehaviour:
@@ -12128,7 +12126,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 962435050}
-        m_MethodName: launchGame
+        m_MethodName: LaunchGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12310,9 +12308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 1554733595}
-  CurrentMenuGame: {fileID: 1164315622}
-  MenuToLoad: {fileID: 1073126963}
+  currentGame: {fileID: 1554733595}
+  currentMenuGame: {fileID: 1164315622}
+  menuToLoad: {fileID: 1073126963}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &965076319
 MonoBehaviour:
@@ -12358,7 +12356,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 965076318}
-        m_MethodName: menuInGame
+        m_MethodName: GetMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13119,9 +13117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 1070898730}
-  CurrentMenuGame: {fileID: 2014894126}
-  MenuToLoad: {fileID: 1757155409}
+  currentGame: {fileID: 1070898730}
+  currentMenuGame: {fileID: 2014894126}
+  menuToLoad: {fileID: 1757155409}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1007427461
 MonoBehaviour:
@@ -13167,7 +13165,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1007427460}
-        m_MethodName: recommencer
+        m_MethodName: Recommencer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13349,9 +13347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 1070898730}
-  CurrentMenuGame: {fileID: 1757155409}
-  MenuToLoad: {fileID: 2014894126}
+  currentGame: {fileID: 1070898730}
+  currentMenuGame: {fileID: 1757155409}
+  menuToLoad: {fileID: 2014894126}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1016114899
 MonoBehaviour:
@@ -13397,7 +13395,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1016114898}
-        m_MethodName: menuInGame
+        m_MethodName: GetMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14347,19 +14345,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c7d94540fea2642b9b1c6f9f408079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameObjectNiveau: {fileID: 1070898730}
-  GameObjectSelect: {fileID: 88586773}
-  Player1: {fileID: 146748840}
-  Player2: {fileID: 707815539}
-  BoxToCreate1: {fileID: 21300000, guid: 92f59e9f21d39e541a0ffcf879d0878d, type: 3}
-  BoxToCreate2: {fileID: 21300000, guid: d922bb5177475524b9ca9529286b0f2d, type: 3}
-  BoxToCreate3: {fileID: 21300000, guid: 1400310fe7accb74f9a6b8cb13e541f7, type: 3}
-  BoxToCreate4: {fileID: 21300000, guid: 8e3668f659d301c40aa3fdf5bc68ac1d, type: 3}
-  TeeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  Pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  Chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  Chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  Manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  gameObjectNiveau: {fileID: 1070898730}
+  gameObjectSelect: {fileID: 88586773}
+  player1: {fileID: 146748840}
+  player2: {fileID: 707815539}
+  boxToCreate1: {fileID: 21300000, guid: 92f59e9f21d39e541a0ffcf879d0878d, type: 3}
+  boxToCreate2: {fileID: 21300000, guid: d922bb5177475524b9ca9529286b0f2d, type: 3}
+  boxToCreate3: {fileID: 21300000, guid: 1400310fe7accb74f9a6b8cb13e541f7, type: 3}
+  boxToCreate4: {fileID: 21300000, guid: 8e3668f659d301c40aa3fdf5bc68ac1d, type: 3}
+  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
+  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
+  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
+  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
+  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
   isEndless: 0
   reset: 0
   nbCarton: 0
@@ -14385,7 +14383,7 @@ Transform:
   - {fileID: 718671597}
   - {fileID: 1723012139}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1073126963
 GameObject:
@@ -14519,9 +14517,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 305653641}
-  CurrentMenuGame: {fileID: 1344799781}
-  MenuToLoad: {fileID: 429137506}
+  currentGame: {fileID: 305653641}
+  currentMenuGame: {fileID: 1344799781}
+  menuToLoad: {fileID: 429137506}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1091061024
 MonoBehaviour:
@@ -14567,7 +14565,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1091061023}
-        m_MethodName: reprendre
+        m_MethodName: Reprendre
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15013,9 +15011,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 1070898730}
-  CurrentMenuGame: {fileID: 2014894126}
-  MenuToLoad: {fileID: 2034447456}
+  currentGame: {fileID: 1070898730}
+  currentMenuGame: {fileID: 2014894126}
+  menuToLoad: {fileID: 2034447456}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1136466759
 MonoBehaviour:
@@ -15061,7 +15059,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1136466758}
-        m_MethodName: choixNiveau
+        m_MethodName: ChoixNiveau
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15443,9 +15441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 1070898730}
-  CurrentMenuGame: {fileID: 2014894126}
-  MenuToLoad: {fileID: 509660968}
+  currentGame: {fileID: 1070898730}
+  currentMenuGame: {fileID: 2014894126}
+  menuToLoad: {fileID: 509660968}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1156794436
 MonoBehaviour:
@@ -15491,7 +15489,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1156794435}
-        m_MethodName: choixNiveau
+        m_MethodName: ChoixNiveau
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16280,9 +16278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 1554733595}
-  CurrentMenuGame: {fileID: 1073126963}
-  MenuToLoad: {fileID: 509660968}
+  currentGame: {fileID: 1554733595}
+  currentMenuGame: {fileID: 1073126963}
+  menuToLoad: {fileID: 509660968}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1196061181
 MonoBehaviour:
@@ -16328,7 +16326,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1196061180}
-        m_MethodName: choixNiveau
+        m_MethodName: ChoixNiveau
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17630,9 +17628,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 1554733595}
-  CurrentMenuGame: {fileID: 1073126963}
-  MenuToLoad: {fileID: 1240772384}
+  currentGame: {fileID: 1554733595}
+  currentMenuGame: {fileID: 1073126963}
+  menuToLoad: {fileID: 1240772384}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1259949172
 MonoBehaviour:
@@ -17678,7 +17676,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1259949171}
-        m_MethodName: choixNiveau
+        m_MethodName: ChoixNiveau
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18056,9 +18054,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d694e4c57e86dfb48a6813781119a761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GScene: {fileID: 509660968}
-  GNewScene: {fileID: 1350727343}
-  Level: {fileID: 0}
+  gScene: {fileID: 509660968}
+  gNewScene: {fileID: 1350727343}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!1 &1299702987
 GameObject:
@@ -19827,9 +19824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d694e4c57e86dfb48a6813781119a761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GScene: {fileID: 1350727343}
-  GNewScene: {fileID: 1048410150}
-  Level: {fileID: 0}
+  gScene: {fileID: 1350727343}
+  gNewScene: {fileID: 1048410150}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1470489183
 MonoBehaviour:
@@ -20093,9 +20089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d694e4c57e86dfb48a6813781119a761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GScene: {fileID: 1224925837}
-  GNewScene: {fileID: 1344799781}
-  Level: {fileID: 0}
+  gScene: {fileID: 1224925837}
+  gNewScene: {fileID: 1344799781}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1487048135
 MonoBehaviour:
@@ -20721,9 +20716,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 1070898730}
-  CurrentMenuGame: {fileID: 2014894126}
-  MenuToLoad: {fileID: 1757155409}
+  currentGame: {fileID: 1070898730}
+  currentMenuGame: {fileID: 2014894126}
+  menuToLoad: {fileID: 1757155409}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1527439463
 MonoBehaviour:
@@ -20769,7 +20764,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1527439462}
-        m_MethodName: reprendre
+        m_MethodName: Reprendre
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20889,11 +20884,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a806f0c6a8c05894ea5f4419d33faf7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TeeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  Pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  Chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  Chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  Manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
+  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
+  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
+  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
+  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
   animator: {fileID: 1528567852}
   footstep: {fileID: 8300000, guid: b0bb1b75d7543e44ba58adfb3f7dc100, type: 3}
   pick: {fileID: 8300000, guid: 0fba18fcca775984689ae864dfe79c77, type: 3}
@@ -21355,19 +21350,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c7d94540fea2642b9b1c6f9f408079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameObjectNiveau: {fileID: 1554733595}
-  GameObjectSelect: {fileID: 695434838}
-  Player1: {fileID: 1528567845}
-  Player2: {fileID: 0}
-  BoxToCreate1: {fileID: 21300000, guid: 92f59e9f21d39e541a0ffcf879d0878d, type: 3}
-  BoxToCreate2: {fileID: 21300000, guid: d922bb5177475524b9ca9529286b0f2d, type: 3}
-  BoxToCreate3: {fileID: 21300000, guid: 1400310fe7accb74f9a6b8cb13e541f7, type: 3}
-  BoxToCreate4: {fileID: 21300000, guid: 8e3668f659d301c40aa3fdf5bc68ac1d, type: 3}
-  TeeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  Pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  Chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  Chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  Manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  gameObjectNiveau: {fileID: 1554733595}
+  gameObjectSelect: {fileID: 695434838}
+  player1: {fileID: 1528567845}
+  player2: {fileID: 695434838}
+  boxToCreate1: {fileID: 21300000, guid: 92f59e9f21d39e541a0ffcf879d0878d, type: 3}
+  boxToCreate2: {fileID: 21300000, guid: d922bb5177475524b9ca9529286b0f2d, type: 3}
+  boxToCreate3: {fileID: 21300000, guid: 1400310fe7accb74f9a6b8cb13e541f7, type: 3}
+  boxToCreate4: {fileID: 21300000, guid: 8e3668f659d301c40aa3fdf5bc68ac1d, type: 3}
+  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
+  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
+  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
+  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
+  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
   isEndless: 0
   reset: 0
   nbCarton: 0
@@ -22295,7 +22290,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1587295560}
-        m_MethodName: recommencer
+        m_MethodName: Recommencer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22356,9 +22351,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 1554733595}
-  CurrentMenuGame: {fileID: 1073126963}
-  MenuToLoad: {fileID: 1164315622}
+  currentGame: {fileID: 1554733595}
+  currentMenuGame: {fileID: 1073126963}
+  menuToLoad: {fileID: 1164315622}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!1 &1588575223
 GameObject:
@@ -22655,9 +22650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d694e4c57e86dfb48a6813781119a761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GScene: {fileID: 1240772384}
-  GNewScene: {fileID: 1073126963}
-  Level: {fileID: 0}
+  gScene: {fileID: 1240772384}
+  gNewScene: {fileID: 1073126963}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1605801277
 MonoBehaviour:
@@ -24478,9 +24472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d694e4c57e86dfb48a6813781119a761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GScene: {fileID: 1048410150}
-  GNewScene: {fileID: 1350727343}
-  Level: {fileID: 0}
+  gScene: {fileID: 1048410150}
+  gNewScene: {fileID: 1350727343}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1733810579
 MonoBehaviour:
@@ -24627,9 +24620,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 509660968}
-  CurrentMenuGame: {fileID: 1757155409}
-  MenuToLoad: {fileID: 1070898730}
+  currentGame: {fileID: 509660968}
+  currentMenuGame: {fileID: 1757155409}
+  menuToLoad: {fileID: 1070898730}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1734725880
 MonoBehaviour:
@@ -24675,7 +24668,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1734725879}
-        m_MethodName: launchGame
+        m_MethodName: LaunchGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25374,9 +25367,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 305653641}
-  CurrentMenuGame: {fileID: 1344799781}
-  MenuToLoad: {fileID: 509660968}
+  currentGame: {fileID: 305653641}
+  currentMenuGame: {fileID: 1344799781}
+  menuToLoad: {fileID: 509660968}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &1764434949
 MonoBehaviour:
@@ -25422,7 +25415,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1764434948}
-        m_MethodName: choixNiveau
+        m_MethodName: ChoixNiveau
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29057,9 +29050,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 305653641}
-  CurrentMenuGame: {fileID: 429137506}
-  MenuToLoad: {fileID: 1344799781}
+  currentGame: {fileID: 305653641}
+  currentMenuGame: {fileID: 429137506}
+  menuToLoad: {fileID: 1344799781}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &2028431490
 MonoBehaviour:
@@ -29105,7 +29098,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2028431489}
-        m_MethodName: menuInGame
+        m_MethodName: GetMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30271,9 +30264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbafa0953743bc48a811bcaeedbd227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGame: {fileID: 509660968}
-  CurrentMenuGame: {fileID: 1164315622}
-  MenuToLoad: {fileID: 1554733595}
+  currentGame: {fileID: 509660968}
+  currentMenuGame: {fileID: 1164315622}
+  menuToLoad: {fileID: 1554733595}
   clic: {fileID: 8300000, guid: bb69be3668bb1824287d3c65076b5af9, type: 3}
 --- !u!114 &2096223996
 MonoBehaviour:
@@ -30319,7 +30312,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2096223995}
-        m_MethodName: launchGame
+        m_MethodName: LaunchGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

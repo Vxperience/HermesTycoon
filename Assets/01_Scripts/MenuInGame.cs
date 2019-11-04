@@ -1,85 +1,85 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MenuInGame : MonoBehaviour
 {
-    public GameObject CurrentGame;
-    public GameObject CurrentMenuGame;
-    public GameObject MenuToLoad;
+    public GameObject currentGame;
+    public GameObject currentMenuGame;
+    public GameObject menuToLoad;
     public AudioClip clic;
+    private GameObject mainCamera;
     private bool endlessness = false;
     
     void Start()
     {
+        mainCamera = GameObject.Find("Main Camera");
         gameObject.AddComponent<AudioSource>().clip = clic;
     }
     
     void Update()
     {
-        gameObject.GetComponent<AudioSource>().volume = GameObject.Find("Main Camera").GetComponent<ChangeCamera>().game;
+        gameObject.GetComponent<AudioSource>().volume = mainCamera.GetComponent<ChangeCamera>().game;
     }
 
     // Activate the menu in game
-    public void menuInGame()
+    public void GetMenu()
     {
         gameObject.GetComponent<AudioSource>().Play();
-        CurrentGame.SetActive(false);
-        CurrentMenuGame.SetActive(false);
-        MenuToLoad.SetActive(true);
+        currentGame.SetActive(false);
+        currentMenuGame.SetActive(false);
+        menuToLoad.SetActive(true);
     }
 
     // close the menu in game
-    public void reprendre()
+    public void Reprendre()
     {
         gameObject.GetComponent<AudioSource>().Play();
-        CurrentGame.SetActive(true);
-        CurrentMenuGame.SetActive(false);
-        MenuToLoad.SetActive(true);
+        currentGame.SetActive(true);
+        currentMenuGame.SetActive(false);
+        menuToLoad.SetActive(true);
     }
 
     // Restart a level
-    public void recommencer()
+    public void Recommencer()
     {
         gameObject.GetComponent<AudioSource>().Play();
-        CurrentGame.GetComponent<Niveau>().reset = true;
-        CurrentGame.SetActive(true);
-        CurrentMenuGame.SetActive(false);
-        MenuToLoad.SetActive(true);
+        currentGame.GetComponent<Niveau>().reset = true;
+        currentGame.SetActive(true);
+        currentMenuGame.SetActive(false);
+        menuToLoad.SetActive(true);
     }
 
     // Go back to the selection level menu
-    public void choixNiveau()
+    public void ChoixNiveau()
     {
         gameObject.GetComponent<AudioSource>().Play();
-        CurrentGame.GetComponent<Niveau>().reset = true;
-        CurrentGame.SetActive(false);
-        CurrentMenuGame.SetActive(false);
-        MenuToLoad.SetActive(true);
+        currentGame.GetComponent<Niveau>().reset = true;
+        currentGame.SetActive(false);
+        currentMenuGame.SetActive(false);
+        menuToLoad.SetActive(true);
     }
 
     // Go back to the main menu of the game
-    public void menu()
+    public void Menu()
     {
         gameObject.GetComponent<AudioSource>().Play();
-        CurrentGame.GetComponent<Niveau>().reset = true;
-        CurrentMenuGame.SetActive(false);
-        MenuToLoad.SetActive(true);
+        currentGame.GetComponent<Niveau>().reset = true;
+        currentMenuGame.SetActive(false);
+        menuToLoad.SetActive(true);
     }
 
 
     // Launch a level
-    public void launchGame()
+    public void LaunchGame()
     {
         gameObject.GetComponent<AudioSource>().Play();
-        MenuToLoad.GetComponent<Niveau>().isEndless = endlessness;
-        CurrentGame.SetActive(false);
-        CurrentMenuGame.SetActive(true);
-        MenuToLoad.SetActive(true);
+        menuToLoad.GetComponent<Niveau>().isEndless = endlessness;
+        currentGame.SetActive(false);
+        currentMenuGame.SetActive(true);
+        menuToLoad.SetActive(true);
     }
 
     // Set if the game will be endless or not
-    public void endlessGame()
+    public void EndlessGame()
     {
         gameObject.GetComponent<AudioSource>().Play();
         endlessness = !endlessness;

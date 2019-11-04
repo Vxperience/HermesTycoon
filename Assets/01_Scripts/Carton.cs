@@ -1,20 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Carton : MonoBehaviour
 {
-    public GameObject GameObjectNiveau;
-    public GameObject GameObjectSelect;
+    public GameObject gameObjectNiveau;
+    public GameObject gameObjectSelect;
     public List<GameObject> indicCommande = new List<GameObject>();
-    public Sprite TeeShirt;
-    public Sprite Pantalon;
-    public Sprite Chemise;
-    public Sprite Chapeau;
-    public Sprite Manteau;
+    public Sprite teeShirt;
+    public Sprite pantalon;
+    public Sprite chemise;
+    public Sprite chapeau;
+    public Sprite manteau;
     public bool newElement = false;
-    private int NextContenu = 0;
+    private int nextContenu = 0;
     private string[] element = new string[] {"tee-shirt", "pantalon", "chemise" , "chapeau", "manteau"};
     private int nbElement;
     private string[] elementToCharge;
@@ -32,7 +31,7 @@ public class Carton : MonoBehaviour
         for (int i = 0; i < nbElement; i++)
         {
             // random element
-            if (GameObjectNiveau.name == "Niveau2" || GameObjectNiveau.name == "Niveau3")
+            if (gameObjectNiveau.name == "Niveau2" || gameObjectNiveau.name == "Niveau3")
                 elementToCharge[i] = element[GetIntInRange(Random.Range(0, 5), 0, 5, new int[] { 3 })];
             else
                 elementToCharge[i] = element[Random.Range(0, 5)];
@@ -40,15 +39,15 @@ public class Carton : MonoBehaviour
             GameObject indicElement = new GameObject();
             indicElement.name = elementToCharge[i];
             if (elementToCharge[i] == "tee-shirt")
-                indicElement.AddComponent<SpriteRenderer>().sprite = TeeShirt;
+                indicElement.AddComponent<SpriteRenderer>().sprite = teeShirt;
             else if (elementToCharge[i] == "pantalon")
-                indicElement.AddComponent<SpriteRenderer>().sprite = Pantalon;
+                indicElement.AddComponent<SpriteRenderer>().sprite = pantalon;
             else if (elementToCharge[i] == "chemise")
-                indicElement.AddComponent<SpriteRenderer>().sprite = Chemise;
+                indicElement.AddComponent<SpriteRenderer>().sprite = chemise;
             else if (elementToCharge[i] == "chapeau")
-                indicElement.AddComponent<SpriteRenderer>().sprite = Chapeau;
+                indicElement.AddComponent<SpriteRenderer>().sprite = chapeau;
             else if (elementToCharge[i] == "manteau")
-                indicElement.AddComponent<SpriteRenderer>().sprite = Manteau;
+                indicElement.AddComponent<SpriteRenderer>().sprite = manteau;
             indicElement.transform.parent = gameObject.transform;
             indicElement.transform.localPosition = new Vector3(0, 0, 0);
             indicElement.transform.localScale = new Vector3(0.5f, 0.5f, 1);
@@ -58,18 +57,18 @@ public class Carton : MonoBehaviour
         }
 
         // If the level have multiple path for the box, He will be assign by a random
-        if (GameObjectNiveau.name == "Niveau3")
+        if (gameObjectNiveau.name == "Niveau3")
             path = Random.Range(1, 3);
     }
     
     void Update()
     {
         // The move of the box
-        if (GameObjectNiveau.name == "Niveau1") {
+        if (gameObjectNiveau.name == "Niveau1") {
             transform.localPosition += new Vector3(0.01f, 0, 0);
-        } else if (GameObjectNiveau.name == "Niveau2") {
+        } else if (gameObjectNiveau.name == "Niveau2") {
             transform.localPosition -= new Vector3(0, 0, 0.004f);
-        } else if (GameObjectNiveau.name == "Niveau3") {
+        } else if (gameObjectNiveau.name == "Niveau3") {
             if (transform.position.x >= -11 && transform.position.x <= -3.85)
                 transform.localPosition += new Vector3(0.01f, 0, 0);
             else if (transform.position.x >= -3.85 && transform.position.x <= -3.5 && transform.position.z >= 0 && transform.position.z <= 2 && (path == 1 || path == 3))
@@ -93,7 +92,7 @@ public class Carton : MonoBehaviour
         }
 
         // Check if select
-        if (GameObjectSelect.GetComponent<Text>().text != gameObject.name) {
+        if (gameObjectSelect.GetComponent<Text>().text != gameObject.name) {
             selected = false;
         }
 
@@ -111,12 +110,12 @@ public class Carton : MonoBehaviour
     private void OnMouseUp()
     {
         // Check if a player is select before changed the select variable and indication in the game
-        if (!GameObjectSelect.GetComponent<Text>().text.Contains("Personnage")) {
+        if (!gameObjectSelect.GetComponent<Text>().text.Contains("Personnage")) {
             selected = !selected;
             if (selected)
-                GameObjectSelect.GetComponent<Text>().text = gameObject.name;
+                gameObjectSelect.GetComponent<Text>().text = gameObject.name;
             else
-                GameObjectSelect.GetComponent<Text>().text = "";
+                gameObjectSelect.GetComponent<Text>().text = "";
         }
     }
 
@@ -145,11 +144,11 @@ public class Carton : MonoBehaviour
                 if (elementToCharge[i] != "done")
                     goodBox = false;
             if (goodBox)
-                GameObjectNiveau.GetComponent<Niveau>().nbCarton++;
+                gameObjectNiveau.GetComponent<Niveau>().nbCarton++;
             else
-                GameObjectNiveau.GetComponent<Niveau>().nbErreur--;
+                gameObjectNiveau.GetComponent<Niveau>().nbErreur--;
             if (selected)
-                GameObjectSelect.GetComponent<Text>().text = "";
+                gameObjectSelect.GetComponent<Text>().text = "";
             Destroy(gameObject);
         }
     }
@@ -159,25 +158,25 @@ public class Carton : MonoBehaviour
         // Add the new element to the box and update or create new indication of the element in the box
         GameObject currentElement;
         
-        NextContenu++;
-        if (transform.Find(chargeElement[NextContenu - 1])) {
-            currentElement = transform.Find(chargeElement[NextContenu - 1]).gameObject;
+        nextContenu++;
+        if (transform.Find(chargeElement[nextContenu - 1])) {
+            currentElement = transform.Find(chargeElement[nextContenu - 1]).gameObject;
             currentElement.name = "done";
             currentElement.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
         } else {
             currentElement = new GameObject();
             currentElement.name = "wrong";
 
-            if (chargeElement[NextContenu - 1] == "tee-shirt")
-                currentElement.AddComponent<SpriteRenderer>().sprite = TeeShirt;
-            else if (chargeElement[NextContenu - 1] == "pantalon")
-                currentElement.AddComponent<SpriteRenderer>().sprite = Pantalon;
-            else if (chargeElement[NextContenu - 1] == "chemise")
-                currentElement.AddComponent<SpriteRenderer>().sprite = Chemise;
-            else if (chargeElement[NextContenu - 1] == "chapeau")
-                currentElement.AddComponent<SpriteRenderer>().sprite = Chapeau;
-            else if (chargeElement[NextContenu - 1] == "manteau")
-                currentElement.AddComponent<SpriteRenderer>().sprite = Manteau;
+            if (chargeElement[nextContenu - 1] == "tee-shirt")
+                currentElement.AddComponent<SpriteRenderer>().sprite = teeShirt;
+            else if (chargeElement[nextContenu - 1] == "pantalon")
+                currentElement.AddComponent<SpriteRenderer>().sprite = pantalon;
+            else if (chargeElement[nextContenu - 1] == "chemise")
+                currentElement.AddComponent<SpriteRenderer>().sprite = chemise;
+            else if (chargeElement[nextContenu - 1] == "chapeau")
+                currentElement.AddComponent<SpriteRenderer>().sprite = chapeau;
+            else if (chargeElement[nextContenu - 1] == "manteau")
+                currentElement.AddComponent<SpriteRenderer>().sprite = manteau;
             currentElement.transform.parent = gameObject.transform;
             currentElement.transform.localPosition = new Vector3(0, 0, 0);
             currentElement.transform.localScale = new Vector3(0.5f, 0.5f, 1);

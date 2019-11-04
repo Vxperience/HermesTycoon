@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnElement : MonoBehaviour
@@ -7,20 +6,15 @@ public class SpawnElement : MonoBehaviour
     public Sprite sprite;
     public string item;
     public bool isPicked = true;
-    
-    void Start()
-    {
-
-    }
-    
+   
     void Update()
     {
         if (isPicked)
-            StartCoroutine(createElement());
+            StartCoroutine(CreateElement());
     }
 
     // Create an initialised the new element
-    IEnumerator createElement()
+    IEnumerator CreateElement()
     {
         isPicked = false;
         yield return new WaitForSeconds(3);

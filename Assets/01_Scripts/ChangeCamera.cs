@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ChangeCamera : MonoBehaviour
 {
-    public GameObject Niveau1;
-    public GameObject Niveau2;
-    public GameObject Niveau3;
-    public GameObject Menu;
+    public GameObject niveau1;
+    public GameObject niveau2;
+    public GameObject niveau3;
+    public GameObject menu;
     public float music; // Use to set the volume of the music audio element
     public float game; // Use to set the volume of all audio element except the music
     private bool isaudio;
@@ -23,18 +21,18 @@ public class ChangeCamera : MonoBehaviour
     void Update()
     {
         // Change the position of the camera to switch between the different level
-        if (Niveau1.activeInHierarchy) {
+        if (niveau1.activeInHierarchy) {
             transform.localPosition = new Vector3(0, 5, -30);
-            Menu.SetActive(false);
-        } else if (Niveau2.activeInHierarchy) {
+            menu.SetActive(false);
+        } else if (niveau2.activeInHierarchy) {
             transform.localPosition = new Vector3(0, 5, -15);
-            Menu.SetActive(false);
-        } else if (Niveau3.activeInHierarchy) {
+            menu.SetActive(false);
+        } else if (niveau3.activeInHierarchy) {
             transform.localPosition = new Vector3(0, 5, 0);
-            Menu.SetActive(false);
+            menu.SetActive(false);
         } else {
             transform.localPosition = new Vector3(30, 5, 0);
-            Menu.SetActive(true);
+            menu.SetActive(true);
         }
         
 

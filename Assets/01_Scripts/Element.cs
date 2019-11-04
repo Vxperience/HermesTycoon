@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Element : MonoBehaviour
 {
     public GameObject spawner;
+    public GameObject select;
     private bool selected;
-    
-    void Start()
-    {
 
+    private void Start()
+    {
+        select = GameObject.Find("select");
     }
-    
+
     void Update()
     {
         // New element animation
@@ -20,7 +19,7 @@ public class Element : MonoBehaviour
             transform.localScale += new Vector3(0.1f, 0.1f, 0);
         
         // Check if the element is select
-        if (GameObject.Find("select").GetComponent<Text>().text != gameObject.name) {
+        if (select.GetComponent<Text>().text != gameObject.name) {
             selected = false;
         }
     }
@@ -28,12 +27,12 @@ public class Element : MonoBehaviour
     private void OnMouseUp()
     {
         // Detect the click and change the select variable and indication in the game
-        if (!GameObject.Find("select").GetComponent<Text>().text.Contains("Personnage")) {
+        if (!select.GetComponent<Text>().text.Contains("Personnage")) {
             selected = !selected;
             if (selected) {
-                GameObject.Find("select").GetComponent<Text>().text = gameObject.name;
+                select.GetComponent<Text>().text = gameObject.name;
             } else {
-                GameObject.Find("select").GetComponent<Text>().text = "";
+                select.GetComponent<Text>().text = "";
             }
         }
     }
