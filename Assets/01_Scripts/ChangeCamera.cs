@@ -7,12 +7,14 @@ public class ChangeCamera : MonoBehaviour
     public GameObject niveau2;
     public GameObject niveau3;
     public GameObject menu;
+    public bool tuto;
     public float music; // Use to set the volume of the music audio element
     public float game; // Use to set the volume of all audio element except the music
     private bool isaudio;
     
     void Start()
     {
+        tuto = true;
         music = 1;
         game = 1;
         isaudio = true;

@@ -2,6 +2,7 @@
 
 public class MenuInGame : MonoBehaviour
 {
+    public GameObject[] niveau;
     public GameObject currentGame;
     public GameObject currentMenuGame;
     public GameObject menuToLoad;

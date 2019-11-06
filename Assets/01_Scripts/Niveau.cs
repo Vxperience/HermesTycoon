@@ -8,6 +8,7 @@ public class Niveau : MonoBehaviour
     public GameObject gameObjectSelect;
     public GameObject player1;
     public GameObject player2;
+    public GameObject Camera;
     public Sprite boxToCreate1;
     public Sprite boxToCreate2;
     public Sprite boxToCreate3;
@@ -23,6 +24,8 @@ public class Niveau : MonoBehaviour
     public int nbErreur;
     private GameObject endMessage;
     private GameObject info;
+    private bool tuto;
+    private bool tutoChecked;
     private int timer;
     private int nbBoxSprite;
     
@@ -30,14 +33,24 @@ public class Niveau : MonoBehaviour
     {
         endMessage = GameObject.Find("endMessage");
         info = GameObject.Find("info");
+        Camera = GameObject.Find("Main Camera");
+        tuto = Camera.GetComponent<ChangeCamera>().tuto;
+        tutoChecked = false;
         ResetGame();
     }
     
     void Update()
     {
+        tuto = Camera.GetComponent<ChangeCamera>().tuto;
         // Check if the game as to be reset
         if (reset)
             ResetGame();
+
+        // Manage the end of the tuto and the start of the game
+        if (!tuto && !tutoChecked) {
+            StartCoroutine(CreateBox());
+            tutoChecked = true;
+        }
 
         // Manage the endgame
         if (isEndless)
@@ -106,6 +119,7 @@ public class Niveau : MonoBehaviour
     {
         // Reset the whole Level
         reset = false;
+        tutoChecked = false;
         nbCarton = 0;
         nbErreur = 3;
         
@@ -142,6 +156,11 @@ public class Niveau : MonoBehaviour
             player2.transform.localPosition = new Vector3(0, 0.05f, 3.75f);
             player2.GetComponent<Personnage>().item = "";
         }
-        StartCoroutine(CreateBox());
+        if (!tuto && !tutoChecked) {
+            StartCoroutine(CreateBox());
+            tutoChecked = true;
+        }
+        if (tuto && !tutoChecked)
+            Camera.GetComponent<Tutoriel>().reset = true;
     }
 }

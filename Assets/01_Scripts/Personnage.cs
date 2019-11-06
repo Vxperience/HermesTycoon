@@ -15,11 +15,11 @@ public class Personnage : MonoBehaviour
     public AudioClip pick;
     public AudioClip drop;
     public string item = "";
+    public bool isInAction = false;
     private GameObject currentItem;
     private GameObject selectHud;
     private GameObject mainCamera;
     private AudioSource playerAudio;
-    private bool isInAction = false;
     private bool selected;
     
     void Start()
