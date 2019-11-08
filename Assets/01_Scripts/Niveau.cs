@@ -34,22 +34,24 @@ public class Niveau : MonoBehaviour
         endMessage = GameObject.Find("endMessage");
         info = GameObject.Find("info");
         Camera = GameObject.Find("Main Camera");
-        tuto = Camera.GetComponent<ChangeCamera>().tuto;
+        isEndless = PlayerPrefs.GetInt("isendless") != 0 ? true : false;
+        tuto = PlayerPrefs.GetInt("tuto") != 0 ? true : false;
         tutoChecked = false;
         ResetGame();
     }
     
     void Update()
     {
-        tuto = Camera.GetComponent<ChangeCamera>().tuto;
+        tuto = PlayerPrefs.GetInt("tuto") != 0 ? true : false;
         // Check if the game as to be reset
         if (reset)
             ResetGame();
 
         // Manage the end of the tuto and the start of the game
-        if (!tuto && !tutoChecked) {
+        if (tuto && !tutoChecked) {
             StartCoroutine(CreateBox());
             tutoChecked = true;
+            Debug.Log("box factory");
         }
 
         // Manage the endgame
@@ -61,8 +63,7 @@ public class Niveau : MonoBehaviour
             } else
                 endMessage.GetComponent<Text>().text = "";
             info.GetComponent<Text>().text = "Nombre de carton remplis: " + nbCarton + " Nombre d'erreur restantes: " + nbErreur;
-        }
-        else {
+        } else {
             if (nbCarton >= 5 || nbErreur <= 0) {
                 if (nbCarton >= 5)
                     endMessage.GetComponent<Text>().text = "Good Job";
@@ -156,11 +157,10 @@ public class Niveau : MonoBehaviour
             player2.transform.localPosition = new Vector3(0, 0.05f, 3.75f);
             player2.GetComponent<Personnage>().item = "";
         }
-        if (!tuto && !tutoChecked) {
+        if (tuto && !tutoChecked) {
             StartCoroutine(CreateBox());
             tutoChecked = true;
+            Debug.Log("box factory");
         }
-        if (tuto && !tutoChecked)
-            Camera.GetComponent<Tutoriel>().reset = true;
     }
 }

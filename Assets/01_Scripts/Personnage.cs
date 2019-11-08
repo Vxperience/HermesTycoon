@@ -41,7 +41,7 @@ public class Personnage : MonoBehaviour
     void Update()
     {
         // Update the volume
-        gameObject.GetComponent<AudioSource>().volume = mainCamera.GetComponent<ChangeCamera>().game;
+        mainCamera.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("game");
         transform.localRotation = Quaternion.Euler(90, 0, 0);
 
         // Check if select
