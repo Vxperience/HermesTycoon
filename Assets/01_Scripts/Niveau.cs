@@ -26,6 +26,7 @@ public class Niveau : MonoBehaviour
     private GameObject info;
     private bool tuto;
     private bool tutoChecked;
+    private bool firstBox;
     private int timer;
     private int nbBoxSprite;
     
@@ -79,10 +80,12 @@ public class Niveau : MonoBehaviour
     IEnumerator CreateBox()
     {
         // Create and initialised box
-        yield return new WaitForSeconds(timer);
+        if (firstBox) {
+            yield return new WaitForSeconds(2);
+            firstBox = false;
+        } else
+            yield return new WaitForSeconds(timer);
         if (GameObject.Find("ToDestroy")) {
-            if (timer > 8)
-                timer--;
             GameObject Carton = new GameObject("Carton");
             Carton.transform.parent = GameObject.Find("ToDestroy").transform;
             nbBoxSprite = Random.Range(0, 4);
@@ -121,6 +124,7 @@ public class Niveau : MonoBehaviour
         // Reset the whole Level
         reset = false;
         tutoChecked = false;
+        firstBox = true;
         nbCarton = 0;
         nbErreur = 3;
         
@@ -160,7 +164,6 @@ public class Niveau : MonoBehaviour
         if (tuto && !tutoChecked) {
             StartCoroutine(CreateBox());
             tutoChecked = true;
-            Debug.Log("box factory");
         }
     }
 }
