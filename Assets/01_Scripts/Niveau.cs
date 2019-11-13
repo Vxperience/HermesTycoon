@@ -9,6 +9,8 @@ public class Niveau : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
     public GameObject Camera;
+    public GameObject[] erreur;
+    public GameObject hudCarton;
     public Sprite boxToCreate1;
     public Sprite boxToCreate2;
     public Sprite boxToCreate3;
@@ -18,8 +20,10 @@ public class Niveau : MonoBehaviour
     public Sprite chemise;
     public Sprite chapeau;
     public Sprite manteau;
+    public Sprite[] spriteErreur;
     public bool isEndless;
     public bool reset = false;
+    public bool updateScore;
     public int nbCarton;
     public int nbErreur;
     private GameObject endMessage;
@@ -56,15 +60,15 @@ public class Niveau : MonoBehaviour
         }
 
         // Manage the endgame
-        if (isEndless)
-        {
+        if (isEndless) {
+            hudCarton.GetComponentInChildren<Text>().text = nbCarton.ToString();
             if (nbErreur <= 0) {
                 endMessage.GetComponent<Text>().text = "Game Over";
                 Destroy(GameObject.Find("ToDestroy"));
             } else
                 endMessage.GetComponent<Text>().text = "";
-            info.GetComponent<Text>().text = "Nombre de carton remplis: " + nbCarton + " Nombre d'erreur restantes: " + nbErreur;
         } else {
+            hudCarton.GetComponentInChildren<Text>().text = nbCarton.ToString() + " / 5";
             if (nbCarton >= 5 || nbErreur <= 0) {
                 if (nbCarton >= 5)
                     endMessage.GetComponent<Text>().text = "Good Job";
@@ -73,7 +77,19 @@ public class Niveau : MonoBehaviour
                 Destroy(GameObject.Find("ToDestroy"));
             } else
                 endMessage.GetComponent<Text>().text = "";
-            info.GetComponent<Text>().text = "Nombre de carton à remplir: " + nbCarton + " / 5 Nombre d'erreur restantes: " + nbErreur;
+        }
+
+        // Mange the nberreur UI
+        if (updateScore) {
+            int toMark = 3 - nbErreur;
+            for (int i = 0; i < 3; i++) {
+                if (toMark > 0) {
+                    erreur[i].GetComponent<Image>().sprite = spriteErreur[1];
+                    toMark--;
+                } else
+                    erreur[i].GetComponent<Image>().sprite = spriteErreur[0];
+            }
+            updateScore = false;
         }
     }
 
@@ -124,6 +140,7 @@ public class Niveau : MonoBehaviour
         // Reset the whole Level
         reset = false;
         tutoChecked = false;
+        updateScore = false;
         firstBox = true;
         nbCarton = 0;
         nbErreur = 3;
@@ -165,5 +182,8 @@ public class Niveau : MonoBehaviour
             StartCoroutine(CreateBox());
             tutoChecked = true;
         }
+        for (int i = 0; i < erreur.Length; i++)
+            erreur[i].GetComponent<Image>().sprite = spriteErreur[0];
+        hudCarton.GetComponentInChildren<Text>().text = nbCarton.ToString();
     }
 }

@@ -149,6 +149,7 @@ public class Carton : MonoBehaviour
                 gameObjectNiveau.GetComponent<Niveau>().nbErreur--;
             if (selected)
                 gameObjectSelect.GetComponent<Text>().text = "";
+            gameObjectNiveau.GetComponent<Niveau>().updateScore = true;
             Destroy(gameObject);
         }
     }
