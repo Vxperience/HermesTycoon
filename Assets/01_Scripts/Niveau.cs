@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Niveau : MonoBehaviour
 {
@@ -56,7 +57,6 @@ public class Niveau : MonoBehaviour
         if (tuto && !tutoChecked) {
             StartCoroutine(CreateBox());
             tutoChecked = true;
-            Debug.Log("box factory");
         }
 
         // Manage the endgame
@@ -65,6 +65,7 @@ public class Niveau : MonoBehaviour
             if (nbErreur <= 0) {
                 endMessage.GetComponent<Text>().text = "Game Over";
                 Destroy(GameObject.Find("ToDestroy"));
+                StartCoroutine(EndGame());
             } else
                 endMessage.GetComponent<Text>().text = "";
         } else {
@@ -75,6 +76,7 @@ public class Niveau : MonoBehaviour
                 else
                     endMessage.GetComponent<Text>().text = "Game Over";
                 Destroy(GameObject.Find("ToDestroy"));
+                StartCoroutine(EndGame());
             } else
                 endMessage.GetComponent<Text>().text = "";
         }
@@ -135,6 +137,13 @@ public class Niveau : MonoBehaviour
         }
     }
 
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(3);
+        PlayerPrefs.SetString("menuToLoad", "Menu");
+        SceneManager.LoadScene(0);
+    }
+
     void ResetGame()
     {
         // Reset the whole Level
@@ -146,9 +155,9 @@ public class Niveau : MonoBehaviour
         nbErreur = 3;
         
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau3")
-            timer = 8;
-        if (gameObject.name == "Niveau2")
             timer = 16;
+        if (gameObject.name == "Niveau2")
+            timer = 24;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")
             GameObject.Find("SpawnerTeeShirt").GetComponent<SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")

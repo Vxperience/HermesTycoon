@@ -76,6 +76,13 @@ public class Menu : MonoBehaviour
     // quit the game
     public void QuitGame()
     {
+        PlayerPrefs.DeleteKey("isendless");
+        PlayerPrefs.DeleteKey("tuto");
+        PlayerPrefs.DeleteKey("menuToLoad");
+        PlayerPrefs.DeleteKey("niveau");
+        PlayerPrefs.DeleteKey("setaudio");
+        PlayerPrefs.DeleteKey("music");
+        PlayerPrefs.DeleteKey("game");
         Application.Quit();
     }
 }

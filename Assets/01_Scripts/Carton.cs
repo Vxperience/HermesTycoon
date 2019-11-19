@@ -65,24 +65,24 @@ public class Carton : MonoBehaviour
     {
         // The move of the box
         if (gameObjectNiveau.name == "Niveau1") {
-            transform.localPosition += new Vector3(0.01f, 0, 0);
+            transform.localPosition += new Vector3(0.005f, 0, 0);
         } else if (gameObjectNiveau.name == "Niveau2") {
-            transform.localPosition -= new Vector3(0, 0, 0.004f);
+            transform.localPosition -= new Vector3(0, 0, 0.002f);
         } else if (gameObjectNiveau.name == "Niveau3") {
             if (transform.position.x >= -11 && transform.position.x <= -3.85)
-                transform.localPosition += new Vector3(0.01f, 0, 0);
+                transform.localPosition += new Vector3(0.005f, 0, 0);
             else if (transform.position.x >= -3.85 && transform.position.x <= -3.5 && transform.position.z >= 0 && transform.position.z <= 2 && (path == 1 || path == 3))
-                transform.localPosition += new Vector3(0, 0, 0.004f);
+                transform.localPosition += new Vector3(0, 0, 0.002f);
             else if (transform.position.x >= -3.85 && transform.position.x <= -3.5 && transform.position.z >= -2 && transform.position.z <= 0 && path == 2)
-                transform.localPosition -= new Vector3(0, 0, 0.004f);
+                transform.localPosition -= new Vector3(0, 0, 0.002f);
             else if ((transform.position.z >= 2 || transform.position.z <= -2) && transform.position.x >= -3.85 && transform.position.x <= 3.85)
-                transform.localPosition += new Vector3(0.01f, 0, 0);
+                transform.localPosition += new Vector3(0.005f, 0, 0);
             else if (transform.position.x >= 3.85 && transform.position.z <= 2.5 && transform.position.z >= 0 && (path == 1 || path == 3))
-                transform.localPosition -= new Vector3(0, 0, 0.004f);
+                transform.localPosition -= new Vector3(0, 0, 0.002f);
             else if (transform.position.x >= 3.85 && transform.position.z <= 0 && transform.position.z >= -2.5 && path == 2)
-                transform.localPosition += new Vector3(0, 0, 0.004f);
+                transform.localPosition += new Vector3(0, 0, 0.002f);
             else if (transform.position.x >= 3.85 && transform.position.z <= 0.1 && transform.position.z >= -0.1)
-                transform.localPosition += new Vector3(0.01f, 0, 0);
+                transform.localPosition += new Vector3(0.005f, 0, 0);
         }
 
         // If the box have a new element
