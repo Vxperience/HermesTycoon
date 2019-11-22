@@ -15,8 +15,8 @@ public class Element : MonoBehaviour
     void Update()
     {
         // New element animation
-        if (transform.localScale.x < 1)
-            transform.localScale += new Vector3(0.1f, 0.1f, 0);
+        if (transform.localScale.x < 0.1)
+            transform.localScale += new Vector3(0.01f, 0.01f, 0);
         
         // Check if the element is select
         if (select.GetComponent<Text>().text != gameObject.name) {

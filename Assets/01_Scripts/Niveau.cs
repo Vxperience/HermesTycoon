@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Niveau : MonoBehaviour
 {
@@ -8,21 +9,29 @@ public class Niveau : MonoBehaviour
     public GameObject gameObjectSelect;
     public GameObject player1;
     public GameObject player2;
+    public GameObject Camera;
+    public GameObject[] erreur;
+    public GameObject hudCarton;
     public Sprite boxToCreate1;
     public Sprite boxToCreate2;
     public Sprite boxToCreate3;
     public Sprite boxToCreate4;
-    public Sprite teeShirt;
+    public Sprite ceinture;
     public Sprite pantalon;
     public Sprite chemise;
-    public Sprite chapeau;
-    public Sprite manteau;
+    public Sprite chaussure;
+    public Sprite montre;
+    public Sprite[] spriteErreur;
     public bool isEndless;
     public bool reset = false;
+    public bool updateScore;
     public int nbCarton;
     public int nbErreur;
     private GameObject endMessage;
     private GameObject info;
+    private bool tuto;
+    private bool tutoChecked;
+    private bool firstBox;
     private int timer;
     private int nbBoxSprite;
     
@@ -30,45 +39,71 @@ public class Niveau : MonoBehaviour
     {
         endMessage = GameObject.Find("endMessage");
         info = GameObject.Find("info");
+        Camera = GameObject.Find("Main Camera");
+        isEndless = PlayerPrefs.GetInt("isendless") != 0 ? true : false;
+        tuto = PlayerPrefs.GetInt("tuto") != 0 ? true : false;
+        tutoChecked = false;
         ResetGame();
     }
     
     void Update()
     {
+        tuto = PlayerPrefs.GetInt("tuto") != 0 ? true : false;
         // Check if the game as to be reset
         if (reset)
             ResetGame();
 
+        // Manage the end of the tuto and the start of the game
+        if (tuto && !tutoChecked) {
+            StartCoroutine(CreateBox());
+            tutoChecked = true;
+        }
+
         // Manage the endgame
-        if (isEndless)
-        {
+        if (isEndless) {
+            hudCarton.GetComponentInChildren<Text>().text = nbCarton.ToString();
             if (nbErreur <= 0) {
                 endMessage.GetComponent<Text>().text = "Game Over";
                 Destroy(GameObject.Find("ToDestroy"));
+                StartCoroutine(EndGame());
             } else
                 endMessage.GetComponent<Text>().text = "";
-            info.GetComponent<Text>().text = "Nombre de carton remplis: " + nbCarton + " Nombre d'erreur restantes: " + nbErreur;
-        }
-        else {
+        } else {
+            hudCarton.GetComponentInChildren<Text>().text = nbCarton.ToString() + " / 5";
             if (nbCarton >= 5 || nbErreur <= 0) {
                 if (nbCarton >= 5)
                     endMessage.GetComponent<Text>().text = "Good Job";
                 else
                     endMessage.GetComponent<Text>().text = "Game Over";
                 Destroy(GameObject.Find("ToDestroy"));
+                StartCoroutine(EndGame());
             } else
                 endMessage.GetComponent<Text>().text = "";
-            info.GetComponent<Text>().text = "Nombre de carton à remplir: " + nbCarton + " / 5 Nombre d'erreur restantes: " + nbErreur;
+        }
+
+        // Mange the nberreur UI
+        if (updateScore) {
+            int toMark = 3 - nbErreur;
+            for (int i = 0; i < 3; i++) {
+                if (toMark > 0) {
+                    erreur[i].GetComponent<Image>().sprite = spriteErreur[1];
+                    toMark--;
+                } else
+                    erreur[i].GetComponent<Image>().sprite = spriteErreur[0];
+            }
+            updateScore = false;
         }
     }
 
     IEnumerator CreateBox()
     {
         // Create and initialised box
-        yield return new WaitForSeconds(timer);
+        if (firstBox) {
+            yield return new WaitForSeconds(2);
+            firstBox = false;
+        } else
+            yield return new WaitForSeconds(timer);
         if (GameObject.Find("ToDestroy")) {
-            if (timer > 8)
-                timer--;
             GameObject Carton = new GameObject("Carton");
             Carton.transform.parent = GameObject.Find("ToDestroy").transform;
             nbBoxSprite = Random.Range(0, 4);
@@ -85,11 +120,11 @@ public class Niveau : MonoBehaviour
             Carton.AddComponent<Rigidbody>().useGravity = false;
             Carton.AddComponent<Carton>().gameObjectNiveau = gameObjectNiveau;
             Carton.GetComponent<Carton>().gameObjectSelect = gameObjectSelect;
-            Carton.GetComponent<Carton>().teeShirt = teeShirt;
+            Carton.GetComponent<Carton>().ceinture = ceinture;
             Carton.GetComponent<Carton>().pantalon = pantalon;
             Carton.GetComponent<Carton>().chemise = chemise;
-            Carton.GetComponent<Carton>().chapeau = chapeau;
-            Carton.GetComponent<Carton>().manteau = manteau;
+            Carton.GetComponent<Carton>().chaussure = chaussure;
+            Carton.GetComponent<Carton>().montre = montre;
             if (gameObject.name == "Niveau1")
                 Carton.transform.localPosition = new Vector3(-11, 0.05f, -27);
             if (gameObject.name == "Niveau2")
@@ -102,27 +137,37 @@ public class Niveau : MonoBehaviour
         }
     }
 
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(3);
+        PlayerPrefs.SetString("menuToLoad", "Menu");
+        SceneManager.LoadScene(0);
+    }
+
     void ResetGame()
     {
         // Reset the whole Level
         reset = false;
+        tutoChecked = false;
+        updateScore = false;
+        firstBox = true;
         nbCarton = 0;
         nbErreur = 3;
         
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau3")
-            timer = 8;
+            timer = 12;
         if (gameObject.name == "Niveau2")
-            timer = 16;
+            timer = 20;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")
-            GameObject.Find("SpawnerTeeShirt").GetComponent<SpawnElement>().isPicked = true;
+            GameObject.Find("SpawnerCeinture").GetComponent<SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")
             GameObject.Find("SpawnerPantalon").GetComponent<SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")
             GameObject.Find("SpawnerChemise").GetComponent<SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")
-            GameObject.Find("SpawnerManteau").GetComponent<SpawnElement>().isPicked = true;
+            GameObject.Find("SpawnerMontre").GetComponent<SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1")
-            GameObject.Find("SpawnerChapeau").GetComponent<SpawnElement>().isPicked = true;
+            GameObject.Find("SpawnerChaussure").GetComponent<SpawnElement>().isPicked = true;
         gameObjectSelect.GetComponent<Text>().text = "";
         if (GameObject.Find("ToDestroy"))
             Destroy(GameObject.Find("ToDestroy"));
@@ -142,6 +187,12 @@ public class Niveau : MonoBehaviour
             player2.transform.localPosition = new Vector3(0, 0.05f, 3.75f);
             player2.GetComponent<Personnage>().item = "";
         }
-        StartCoroutine(CreateBox());
+        if (tuto && !tutoChecked) {
+            StartCoroutine(CreateBox());
+            tutoChecked = true;
+        }
+        for (int i = 0; i < erreur.Length; i++)
+            erreur[i].GetComponent<Image>().sprite = spriteErreur[0];
+        hudCarton.GetComponentInChildren<Text>().text = nbCarton.ToString();
     }
 }
