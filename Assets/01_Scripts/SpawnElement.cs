@@ -22,7 +22,7 @@ public class SpawnElement : MonoBehaviour
         Element.tag = "Element";
         Element.transform.parent = GameObject.Find("ToDestroy").transform;
         Element.AddComponent<SpriteRenderer>().sprite = sprite;
-        Element.AddComponent<BoxCollider>().size = new Vector3(1, 1, 0.2f);
+        Element.AddComponent<BoxCollider>().size = new Vector3(6, 6, 0.2f);
         Element.GetComponent<BoxCollider>().isTrigger = true;
         Element.AddComponent<Element>().spawner = transform.gameObject;
         Element.transform.localPosition = new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z);

@@ -5,11 +5,7 @@ using UnityEngine.AI;
 
 public class Personnage : MonoBehaviour
 {
-    public Sprite teeShirt;
-    public Sprite pantalon;
-    public Sprite chemise;
-    public Sprite chapeau;
-    public Sprite manteau;
+    public Sprite[] sprite;
     public Animator animator;
     public AudioClip footstep;
     public AudioClip pick;
@@ -32,7 +28,7 @@ public class Personnage : MonoBehaviour
         currentItem.name = "Item";
         currentItem.transform.parent = gameObject.transform;
         currentItem.transform.localPosition = new Vector3(0, 0, 0);
-        currentItem.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+        currentItem.transform.localScale = new Vector3(0.08f, 0.08f, 1);
         currentItem.transform.localRotation = Quaternion.Euler(0, 0, 0);
         currentItem.AddComponent<SpriteRenderer>();
         currentItem.SetActive(false);
@@ -152,16 +148,16 @@ public class Personnage : MonoBehaviour
             if (GameObject.Find(hit.transform.gameObject.name)) {
                 item = hit.transform.gameObject.name;
                 hit.transform.gameObject.GetComponent<Element>().spawner.GetComponent<SpawnElement>().isPicked = true;
-                if (item == "tee-shirt")
-                    currentItem.GetComponent<SpriteRenderer>().sprite = teeShirt;
+                if (item == "ceinture")
+                    currentItem.GetComponent<SpriteRenderer>().sprite = sprite[0];
                 else if (item == "pantalon")
-                    currentItem.GetComponent<SpriteRenderer>().sprite = pantalon;
+                    currentItem.GetComponent<SpriteRenderer>().sprite = sprite[1];
                 else if (item == "chemise")
-                    currentItem.GetComponent<SpriteRenderer>().sprite = chemise;
-                else if (item == "chapeau")
-                    currentItem.GetComponent<SpriteRenderer>().sprite = chapeau;
-                else if (item == "manteau")
-                    currentItem.GetComponent<SpriteRenderer>().sprite = manteau;
+                    currentItem.GetComponent<SpriteRenderer>().sprite = sprite[2];
+                else if (item == "chaussure")
+                    currentItem.GetComponent<SpriteRenderer>().sprite = sprite[3];
+                else if (item == "montre")
+                    currentItem.GetComponent<SpriteRenderer>().sprite = sprite[4];
                 currentItem.SetActive(true);
                 Destroy(hit.transform.gameObject);
                 isInAction = false;

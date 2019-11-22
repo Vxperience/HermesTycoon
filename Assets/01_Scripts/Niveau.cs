@@ -16,11 +16,11 @@ public class Niveau : MonoBehaviour
     public Sprite boxToCreate2;
     public Sprite boxToCreate3;
     public Sprite boxToCreate4;
-    public Sprite teeShirt;
+    public Sprite ceinture;
     public Sprite pantalon;
     public Sprite chemise;
-    public Sprite chapeau;
-    public Sprite manteau;
+    public Sprite chaussure;
+    public Sprite montre;
     public Sprite[] spriteErreur;
     public bool isEndless;
     public bool reset = false;
@@ -120,11 +120,11 @@ public class Niveau : MonoBehaviour
             Carton.AddComponent<Rigidbody>().useGravity = false;
             Carton.AddComponent<Carton>().gameObjectNiveau = gameObjectNiveau;
             Carton.GetComponent<Carton>().gameObjectSelect = gameObjectSelect;
-            Carton.GetComponent<Carton>().teeShirt = teeShirt;
+            Carton.GetComponent<Carton>().ceinture = ceinture;
             Carton.GetComponent<Carton>().pantalon = pantalon;
             Carton.GetComponent<Carton>().chemise = chemise;
-            Carton.GetComponent<Carton>().chapeau = chapeau;
-            Carton.GetComponent<Carton>().manteau = manteau;
+            Carton.GetComponent<Carton>().chaussure = chaussure;
+            Carton.GetComponent<Carton>().montre = montre;
             if (gameObject.name == "Niveau1")
                 Carton.transform.localPosition = new Vector3(-11, 0.05f, -27);
             if (gameObject.name == "Niveau2")
@@ -155,19 +155,19 @@ public class Niveau : MonoBehaviour
         nbErreur = 3;
         
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau3")
-            timer = 16;
+            timer = 12;
         if (gameObject.name == "Niveau2")
-            timer = 24;
+            timer = 20;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")
-            GameObject.Find("SpawnerTeeShirt").GetComponent<SpawnElement>().isPicked = true;
+            GameObject.Find("SpawnerCeinture").GetComponent<SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")
             GameObject.Find("SpawnerPantalon").GetComponent<SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")
             GameObject.Find("SpawnerChemise").GetComponent<SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")
-            GameObject.Find("SpawnerManteau").GetComponent<SpawnElement>().isPicked = true;
+            GameObject.Find("SpawnerMontre").GetComponent<SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1")
-            GameObject.Find("SpawnerChapeau").GetComponent<SpawnElement>().isPicked = true;
+            GameObject.Find("SpawnerChaussure").GetComponent<SpawnElement>().isPicked = true;
         gameObjectSelect.GetComponent<Text>().text = "";
         if (GameObject.Find("ToDestroy"))
             Destroy(GameObject.Find("ToDestroy"));

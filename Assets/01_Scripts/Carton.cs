@@ -7,14 +7,14 @@ public class Carton : MonoBehaviour
     public GameObject gameObjectNiveau;
     public GameObject gameObjectSelect;
     public List<GameObject> indicCommande = new List<GameObject>();
-    public Sprite teeShirt;
+    public Sprite ceinture;
     public Sprite pantalon;
     public Sprite chemise;
-    public Sprite chapeau;
-    public Sprite manteau;
+    public Sprite chaussure;
+    public Sprite montre;
     public bool newElement = false;
     private int nextContenu = 0;
-    private string[] element = new string[] {"tee-shirt", "pantalon", "chemise" , "chapeau", "manteau"};
+    private string[] element = new string[] {"ceinture", "pantalon", "chemise" , "chaussure", "montre"};
     private int nbElement;
     private string[] elementToCharge;
     public List<string> chargeElement = new List<string>();
@@ -38,19 +38,19 @@ public class Carton : MonoBehaviour
             // indications
             GameObject indicElement = new GameObject();
             indicElement.name = elementToCharge[i];
-            if (elementToCharge[i] == "tee-shirt")
-                indicElement.AddComponent<SpriteRenderer>().sprite = teeShirt;
+            if (elementToCharge[i] == "ceinture")
+                indicElement.AddComponent<SpriteRenderer>().sprite = ceinture;
             else if (elementToCharge[i] == "pantalon")
                 indicElement.AddComponent<SpriteRenderer>().sprite = pantalon;
             else if (elementToCharge[i] == "chemise")
                 indicElement.AddComponent<SpriteRenderer>().sprite = chemise;
-            else if (elementToCharge[i] == "chapeau")
-                indicElement.AddComponent<SpriteRenderer>().sprite = chapeau;
-            else if (elementToCharge[i] == "manteau")
-                indicElement.AddComponent<SpriteRenderer>().sprite = manteau;
+            else if (elementToCharge[i] == "chaussure")
+                indicElement.AddComponent<SpriteRenderer>().sprite = chaussure;
+            else if (elementToCharge[i] == "montre")
+                indicElement.AddComponent<SpriteRenderer>().sprite = montre;
             indicElement.transform.parent = gameObject.transform;
             indicElement.transform.localPosition = new Vector3(0, 0, 0);
-            indicElement.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            indicElement.transform.localScale = new Vector3(0.1f, 0.1f, 1);
             indicElement.transform.localRotation = Quaternion.Euler(0, 0, 0);
             indicElement.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 0.5f);
             indicCommande.Add(indicElement);
@@ -65,24 +65,24 @@ public class Carton : MonoBehaviour
     {
         // The move of the box
         if (gameObjectNiveau.name == "Niveau1") {
-            transform.localPosition += new Vector3(0.005f, 0, 0);
+            transform.localPosition += new Vector3(0.007f, 0, 0);
         } else if (gameObjectNiveau.name == "Niveau2") {
-            transform.localPosition -= new Vector3(0, 0, 0.002f);
+            transform.localPosition -= new Vector3(0, 0, 0.004f);
         } else if (gameObjectNiveau.name == "Niveau3") {
             if (transform.position.x >= -11 && transform.position.x <= -3.85)
-                transform.localPosition += new Vector3(0.005f, 0, 0);
+                transform.localPosition += new Vector3(0.007f, 0, 0);
             else if (transform.position.x >= -3.85 && transform.position.x <= -3.5 && transform.position.z >= 0 && transform.position.z <= 2 && (path == 1 || path == 3))
-                transform.localPosition += new Vector3(0, 0, 0.002f);
+                transform.localPosition += new Vector3(0, 0, 0.004f);
             else if (transform.position.x >= -3.85 && transform.position.x <= -3.5 && transform.position.z >= -2 && transform.position.z <= 0 && path == 2)
-                transform.localPosition -= new Vector3(0, 0, 0.002f);
+                transform.localPosition -= new Vector3(0, 0, 0.004f);
             else if ((transform.position.z >= 2 || transform.position.z <= -2) && transform.position.x >= -3.85 && transform.position.x <= 3.85)
-                transform.localPosition += new Vector3(0.005f, 0, 0);
+                transform.localPosition += new Vector3(0.007f, 0, 0);
             else if (transform.position.x >= 3.85 && transform.position.z <= 2.5 && transform.position.z >= 0 && (path == 1 || path == 3))
-                transform.localPosition -= new Vector3(0, 0, 0.002f);
+                transform.localPosition -= new Vector3(0, 0, 0.004f);
             else if (transform.position.x >= 3.85 && transform.position.z <= 0 && transform.position.z >= -2.5 && path == 2)
-                transform.localPosition += new Vector3(0, 0, 0.002f);
+                transform.localPosition += new Vector3(0, 0, 0.004f);
             else if (transform.position.x >= 3.85 && transform.position.z <= 0.1 && transform.position.z >= -0.1)
-                transform.localPosition += new Vector3(0.005f, 0, 0);
+                transform.localPosition += new Vector3(0.007f, 0, 0);
         }
 
         // If the box have a new element
@@ -167,20 +167,20 @@ public class Carton : MonoBehaviour
         } else {
             currentElement = new GameObject();
             currentElement.name = "wrong";
-
-            if (chargeElement[nextContenu - 1] == "tee-shirt")
-                currentElement.AddComponent<SpriteRenderer>().sprite = teeShirt;
+            
+            if (chargeElement[nextContenu - 1] == "ceinture")
+                currentElement.AddComponent<SpriteRenderer>().sprite = ceinture;
             else if (chargeElement[nextContenu - 1] == "pantalon")
                 currentElement.AddComponent<SpriteRenderer>().sprite = pantalon;
             else if (chargeElement[nextContenu - 1] == "chemise")
                 currentElement.AddComponent<SpriteRenderer>().sprite = chemise;
-            else if (chargeElement[nextContenu - 1] == "chapeau")
-                currentElement.AddComponent<SpriteRenderer>().sprite = chapeau;
-            else if (chargeElement[nextContenu - 1] == "manteau")
-                currentElement.AddComponent<SpriteRenderer>().sprite = manteau;
+            else if (chargeElement[nextContenu - 1] == "chaussure")
+                currentElement.AddComponent<SpriteRenderer>().sprite = chaussure;
+            else if (chargeElement[nextContenu - 1] == "montre")
+                currentElement.AddComponent<SpriteRenderer>().sprite = montre;
             currentElement.transform.parent = gameObject.transform;
             currentElement.transform.localPosition = new Vector3(0, 0, 0);
-            currentElement.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            currentElement.transform.localScale = new Vector3(0.1f, 0.1f, 1);
             currentElement.transform.localRotation = Quaternion.Euler(0, 0, 0);
             currentElement.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
             indicCommande.Add(currentElement);

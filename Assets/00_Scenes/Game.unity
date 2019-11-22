@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 9311099}
   - component: {fileID: 9311098}
   m_Layer: 0
-  m_Name: SpawnerManteau
+  m_Name: SpawnerMontre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09df51f8be6ce544cbabbda180e1f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
-  item: manteau
+  sprite: {fileID: 21300000, guid: 8b2d1c345ad757d439b2edca8c534486, type: 3}
+  item: montre
   isPicked: 1
 --- !u!212 &9311099
 SpriteRenderer:
@@ -4338,7 +4338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09df51f8be6ce544cbabbda180e1f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
+  sprite: {fileID: 21300000, guid: 0885e27dcfdd4b5438aaebe497106dfd, type: 3}
   item: chemise
   isPicked: 1
 --- !u!212 &495063942
@@ -4809,7 +4809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09df51f8be6ce544cbabbda180e1f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
+  sprite: {fileID: 21300000, guid: 1eeafbb13ce13684eb71cec15aa4932b, type: 3}
   item: pantalon
   isPicked: 1
 --- !u!212 &513664979
@@ -11034,11 +11034,11 @@ MonoBehaviour:
   - {fileID: 1751612324}
   - {fileID: 1914501717}
   sprite:
-  - {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  - {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  - {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  - {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  - {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  - {fileID: 21300000, guid: 9dbd8c8f8cceb1d47bffd18153d8bce9, type: 3}
+  - {fileID: 21300000, guid: 1eeafbb13ce13684eb71cec15aa4932b, type: 3}
+  - {fileID: 21300000, guid: 0885e27dcfdd4b5438aaebe497106dfd, type: 3}
+  - {fileID: 21300000, guid: 5054197570ee4d2498bc4782de7c92cd, type: 3}
+  - {fileID: 21300000, guid: 8b2d1c345ad757d439b2edca8c534486, type: 3}
   - {fileID: 21300000, guid: d9c2e4e32e99b56409c8a78cc4bd4a99, type: 3}
   - {fileID: 21300000, guid: 92f59e9f21d39e541a0ffcf879d0878d, type: 3}
   - {fileID: 21300000, guid: d922bb5177475524b9ca9529286b0f2d, type: 3}
@@ -11572,7 +11572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09df51f8be6ce544cbabbda180e1f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
+  sprite: {fileID: 21300000, guid: 0885e27dcfdd4b5438aaebe497106dfd, type: 3}
   item: chemise
   isPicked: 1
 --- !u!212 &990992989
@@ -12042,11 +12042,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a806f0c6a8c05894ea5f4419d33faf7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  sprite:
+  - {fileID: 21300000, guid: 9dbd8c8f8cceb1d47bffd18153d8bce9, type: 3}
+  - {fileID: 21300000, guid: 1eeafbb13ce13684eb71cec15aa4932b, type: 3}
+  - {fileID: 21300000, guid: 0885e27dcfdd4b5438aaebe497106dfd, type: 3}
+  - {fileID: 21300000, guid: 5054197570ee4d2498bc4782de7c92cd, type: 3}
+  - {fileID: 21300000, guid: 8b2d1c345ad757d439b2edca8c534486, type: 3}
   animator: {fileID: 1058784497}
   footstep: {fileID: 8300000, guid: b0bb1b75d7543e44ba58adfb3f7dc100, type: 3}
   pick: {fileID: 8300000, guid: 0fba18fcca775984689ae864dfe79c77, type: 3}
@@ -14623,11 +14624,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a806f0c6a8c05894ea5f4419d33faf7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  sprite:
+  - {fileID: 21300000, guid: 9dbd8c8f8cceb1d47bffd18153d8bce9, type: 3}
+  - {fileID: 21300000, guid: 1eeafbb13ce13684eb71cec15aa4932b, type: 3}
+  - {fileID: 21300000, guid: 0885e27dcfdd4b5438aaebe497106dfd, type: 3}
+  - {fileID: 21300000, guid: 5054197570ee4d2498bc4782de7c92cd, type: 3}
+  - {fileID: 21300000, guid: 8b2d1c345ad757d439b2edca8c534486, type: 3}
   animator: {fileID: 1242413961}
   footstep: {fileID: 8300000, guid: b0bb1b75d7543e44ba58adfb3f7dc100, type: 3}
   pick: {fileID: 8300000, guid: 0fba18fcca775984689ae864dfe79c77, type: 3}
@@ -18706,7 +18708,7 @@ GameObject:
   - component: {fileID: 1610764534}
   - component: {fileID: 1610764533}
   m_Layer: 0
-  m_Name: SpawnerManteau
+  m_Name: SpawnerMontre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18739,8 +18741,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09df51f8be6ce544cbabbda180e1f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
-  item: manteau
+  sprite: {fileID: 21300000, guid: 8b2d1c345ad757d439b2edca8c534486, type: 3}
+  item: montre
   isPicked: 1
 --- !u!212 &1610764534
 SpriteRenderer:
@@ -19605,7 +19607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09df51f8be6ce544cbabbda180e1f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
+  sprite: {fileID: 21300000, guid: 1eeafbb13ce13684eb71cec15aa4932b, type: 3}
   item: pantalon
   isPicked: 1
 --- !u!212 &1638275269
@@ -19751,7 +19753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1644426037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19778,11 +19780,11 @@ MonoBehaviour:
   boxToCreate2: {fileID: 21300000, guid: d922bb5177475524b9ca9529286b0f2d, type: 3}
   boxToCreate3: {fileID: 21300000, guid: 1400310fe7accb74f9a6b8cb13e541f7, type: 3}
   boxToCreate4: {fileID: 21300000, guid: 8e3668f659d301c40aa3fdf5bc68ac1d, type: 3}
-  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  ceinture: {fileID: 21300000, guid: 9dbd8c8f8cceb1d47bffd18153d8bce9, type: 3}
+  pantalon: {fileID: 21300000, guid: 1eeafbb13ce13684eb71cec15aa4932b, type: 3}
+  chemise: {fileID: 21300000, guid: 0885e27dcfdd4b5438aaebe497106dfd, type: 3}
+  chaussure: {fileID: 21300000, guid: 5054197570ee4d2498bc4782de7c92cd, type: 3}
+  montre: {fileID: 21300000, guid: 8b2d1c345ad757d439b2edca8c534486, type: 3}
   spriteErreur:
   - {fileID: 21300000, guid: 6ffaab34a88b6b44688c9bf036e99fb2, type: 3}
   - {fileID: 21300000, guid: 79118bda0d56fb84082e7d3984e711e4, type: 3}
@@ -21452,11 +21454,11 @@ MonoBehaviour:
   boxToCreate2: {fileID: 21300000, guid: d922bb5177475524b9ca9529286b0f2d, type: 3}
   boxToCreate3: {fileID: 21300000, guid: 1400310fe7accb74f9a6b8cb13e541f7, type: 3}
   boxToCreate4: {fileID: 21300000, guid: 8e3668f659d301c40aa3fdf5bc68ac1d, type: 3}
-  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  ceinture: {fileID: 21300000, guid: 9dbd8c8f8cceb1d47bffd18153d8bce9, type: 3}
+  pantalon: {fileID: 21300000, guid: 1eeafbb13ce13684eb71cec15aa4932b, type: 3}
+  chemise: {fileID: 21300000, guid: 0885e27dcfdd4b5438aaebe497106dfd, type: 3}
+  chaussure: {fileID: 21300000, guid: 5054197570ee4d2498bc4782de7c92cd, type: 3}
+  montre: {fileID: 21300000, guid: 8b2d1c345ad757d439b2edca8c534486, type: 3}
   spriteErreur:
   - {fileID: 21300000, guid: 6ffaab34a88b6b44688c9bf036e99fb2, type: 3}
   - {fileID: 21300000, guid: 79118bda0d56fb84082e7d3984e711e4, type: 3}
@@ -21906,7 +21908,7 @@ GameObject:
   - component: {fileID: 1770539808}
   - component: {fileID: 1770539807}
   m_Layer: 0
-  m_Name: SpawnerChapeau
+  m_Name: SpawnerChaussure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21939,8 +21941,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09df51f8be6ce544cbabbda180e1f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  item: chapeau
+  sprite: {fileID: 21300000, guid: 5054197570ee4d2498bc4782de7c92cd, type: 3}
+  item: chaussure
   isPicked: 1
 --- !u!212 &1770539808
 SpriteRenderer:
@@ -22134,7 +22136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09df51f8be6ce544cbabbda180e1f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
+  sprite: {fileID: 21300000, guid: 0885e27dcfdd4b5438aaebe497106dfd, type: 3}
   item: chemise
   isPicked: 1
 --- !u!212 &1774396641
@@ -22566,11 +22568,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a806f0c6a8c05894ea5f4419d33faf7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  sprite:
+  - {fileID: 21300000, guid: 9dbd8c8f8cceb1d47bffd18153d8bce9, type: 3}
+  - {fileID: 21300000, guid: 1eeafbb13ce13684eb71cec15aa4932b, type: 3}
+  - {fileID: 21300000, guid: 0885e27dcfdd4b5438aaebe497106dfd, type: 3}
+  - {fileID: 21300000, guid: 5054197570ee4d2498bc4782de7c92cd, type: 3}
+  - {fileID: 21300000, guid: 8b2d1c345ad757d439b2edca8c534486, type: 3}
   animator: {fileID: 1797936084}
   footstep: {fileID: 8300000, guid: b0bb1b75d7543e44ba58adfb3f7dc100, type: 3}
   pick: {fileID: 8300000, guid: 0fba18fcca775984689ae864dfe79c77, type: 3}
@@ -23526,7 +23529,7 @@ GameObject:
   - component: {fileID: 1851274557}
   - component: {fileID: 1851274556}
   m_Layer: 0
-  m_Name: SpawnerManteau
+  m_Name: SpawnerMontre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23559,8 +23562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09df51f8be6ce544cbabbda180e1f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
-  item: manteau
+  sprite: {fileID: 21300000, guid: 8b2d1c345ad757d439b2edca8c534486, type: 3}
+  item: montre
   isPicked: 1
 --- !u!212 &1851274557
 SpriteRenderer:
@@ -23713,7 +23716,7 @@ GameObject:
   - component: {fileID: 1860974487}
   - component: {fileID: 1860974486}
   m_Layer: 0
-  m_Name: SpawnerTeeShirt
+  m_Name: SpawnerCeinture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23746,8 +23749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09df51f8be6ce544cbabbda180e1f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  item: tee-shirt
+  sprite: {fileID: 21300000, guid: 9dbd8c8f8cceb1d47bffd18153d8bce9, type: 3}
+  item: ceinture
   isPicked: 1
 --- !u!212 &1860974487
 SpriteRenderer:
@@ -24263,11 +24266,11 @@ MonoBehaviour:
   boxToCreate2: {fileID: 21300000, guid: d922bb5177475524b9ca9529286b0f2d, type: 3}
   boxToCreate3: {fileID: 21300000, guid: 1400310fe7accb74f9a6b8cb13e541f7, type: 3}
   boxToCreate4: {fileID: 21300000, guid: 8e3668f659d301c40aa3fdf5bc68ac1d, type: 3}
-  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  ceinture: {fileID: 21300000, guid: 9dbd8c8f8cceb1d47bffd18153d8bce9, type: 3}
+  pantalon: {fileID: 21300000, guid: 1eeafbb13ce13684eb71cec15aa4932b, type: 3}
+  chemise: {fileID: 21300000, guid: 0885e27dcfdd4b5438aaebe497106dfd, type: 3}
+  chaussure: {fileID: 21300000, guid: 5054197570ee4d2498bc4782de7c92cd, type: 3}
+  montre: {fileID: 21300000, guid: 8b2d1c345ad757d439b2edca8c534486, type: 3}
   spriteErreur:
   - {fileID: 21300000, guid: 6ffaab34a88b6b44688c9bf036e99fb2, type: 3}
   - {fileID: 21300000, guid: 79118bda0d56fb84082e7d3984e711e4, type: 3}
@@ -24831,11 +24834,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a806f0c6a8c05894ea5f4419d33faf7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  sprite:
+  - {fileID: 21300000, guid: 9dbd8c8f8cceb1d47bffd18153d8bce9, type: 3}
+  - {fileID: 21300000, guid: 1eeafbb13ce13684eb71cec15aa4932b, type: 3}
+  - {fileID: 21300000, guid: 0885e27dcfdd4b5438aaebe497106dfd, type: 3}
+  - {fileID: 21300000, guid: 5054197570ee4d2498bc4782de7c92cd, type: 3}
+  - {fileID: 21300000, guid: 8b2d1c345ad757d439b2edca8c534486, type: 3}
   animator: {fileID: 1933309062}
   footstep: {fileID: 8300000, guid: b0bb1b75d7543e44ba58adfb3f7dc100, type: 3}
   pick: {fileID: 8300000, guid: 0fba18fcca775984689ae864dfe79c77, type: 3}
@@ -24916,7 +24920,7 @@ GameObject:
   - component: {fileID: 1935006722}
   - component: {fileID: 1935006721}
   m_Layer: 0
-  m_Name: SpawnerTeeShirt
+  m_Name: SpawnerCeinture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24949,8 +24953,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09df51f8be6ce544cbabbda180e1f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  item: tee-shirt
+  sprite: {fileID: 21300000, guid: 9dbd8c8f8cceb1d47bffd18153d8bce9, type: 3}
+  item: Ceinture
   isPicked: 1
 --- !u!212 &1935006722
 SpriteRenderer:
@@ -25759,11 +25763,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a806f0c6a8c05894ea5f4419d33faf7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teeShirt: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  pantalon: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
-  chemise: {fileID: 21300000, guid: 1ac06a93363246448931d215e4f3037b, type: 3}
-  chapeau: {fileID: 21300000, guid: 6a9db6a9e893bb248a32c0e4092ab984, type: 3}
-  manteau: {fileID: 21300000, guid: 6e6963a4cd1425e4790cc36f3255722e, type: 3}
+  sprite:
+  - {fileID: 21300000, guid: 9dbd8c8f8cceb1d47bffd18153d8bce9, type: 3}
+  - {fileID: 21300000, guid: 1eeafbb13ce13684eb71cec15aa4932b, type: 3}
+  - {fileID: 21300000, guid: 0885e27dcfdd4b5438aaebe497106dfd, type: 3}
+  - {fileID: 21300000, guid: 5054197570ee4d2498bc4782de7c92cd, type: 3}
+  - {fileID: 21300000, guid: 8b2d1c345ad757d439b2edca8c534486, type: 3}
   animator: {fileID: 1974075351}
   footstep: {fileID: 8300000, guid: b0bb1b75d7543e44ba58adfb3f7dc100, type: 3}
   pick: {fileID: 8300000, guid: 0fba18fcca775984689ae864dfe79c77, type: 3}
@@ -26241,7 +26246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09df51f8be6ce544cbabbda180e1f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 9ef39a01ecbfba84f80910fe6c84a922, type: 3}
+  sprite: {fileID: 21300000, guid: 1eeafbb13ce13684eb71cec15aa4932b, type: 3}
   item: pantalon
   isPicked: 1
 --- !u!212 &1996432040
@@ -27565,7 +27570,7 @@ GameObject:
   - component: {fileID: 2144178992}
   - component: {fileID: 2144178991}
   m_Layer: 0
-  m_Name: SpawnerTeeShirt
+  m_Name: SpawnerCeinture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27598,8 +27603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09df51f8be6ce544cbabbda180e1f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 97d70336412918c4cb1c710aff16e242, type: 3}
-  item: tee-shirt
+  sprite: {fileID: 21300000, guid: 9dbd8c8f8cceb1d47bffd18153d8bce9, type: 3}
+  item: Ceinture
   isPicked: 1
 --- !u!212 &2144178992
 SpriteRenderer:
