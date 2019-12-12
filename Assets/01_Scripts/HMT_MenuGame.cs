@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MenuGame : MonoBehaviour
+public class HMT_MenuGame : MonoBehaviour
 {
     public GameObject[] scene;
     public GameObject cam;
@@ -57,8 +57,8 @@ public class MenuGame : MonoBehaviour
         scene[currentScene].SetActive(true);
         scene[3].SetActive(true);
         scene[4].SetActive(false);
-        scene[currentScene].GetComponent<Niveau>().reset = true;
-        GameObject.Find("Tutoriel").GetComponent<Tutoriel>().reset = true;
+        scene[currentScene].GetComponent<HMT_Niveau>().reset = true;
+        GameObject.Find("Tutoriel").GetComponent<HMT_Tutoriel>().reset = true;
         GameObject.Find("select").GetComponent<Text>().text = "";
     }
 
@@ -66,7 +66,7 @@ public class MenuGame : MonoBehaviour
     public void GameToChoixNiveau()
     {
         PlayerPrefs.SetString("menuToLoad", "ChoixNiveau");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("HMT_menu");
     }
 
     // go to the option menu
@@ -89,12 +89,13 @@ public class MenuGame : MonoBehaviour
     public void GameToMainMenu()
     {
         PlayerPrefs.SetString("menuToLoad", "Menu");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("HMT_menu");
     }
 
     // quit the application
     public void QuitGame()
     {
+        Time.timeScale = 1;
         PlayerPrefs.DeleteKey("isendless");
         PlayerPrefs.DeleteKey("tuto");
         PlayerPrefs.DeleteKey("menuToLoad");
@@ -102,6 +103,6 @@ public class MenuGame : MonoBehaviour
         PlayerPrefs.DeleteKey("setaudio");
         PlayerPrefs.DeleteKey("music");
         PlayerPrefs.DeleteKey("game");
-        Application.Quit();
+        SceneManager.LoadScene(1);
     }
 }

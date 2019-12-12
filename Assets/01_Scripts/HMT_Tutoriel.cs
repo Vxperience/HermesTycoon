@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Tutoriel : MonoBehaviour
+public class HMT_Tutoriel : MonoBehaviour
 {
     public GameObject[] niveau;
     public Sprite[] sprite;
@@ -76,7 +76,7 @@ public class Tutoriel : MonoBehaviour
             // valid the player move finished step
             if (step1 && step2 && !step3 && !validStep) {
                 if (select.GetComponent<Text>().text.Contains("Personnage")) {
-                    if (!GameObject.Find(select.GetComponent<Text>().text).GetComponent<Personnage>().isInAction) {
+                    if (!GameObject.Find(select.GetComponent<Text>().text).GetComponent<HMT_Personnage>().isInAction) {
                         validStep = true;
                         step3 = true;
                         StartCoroutine(NextStep(1));
@@ -87,7 +87,7 @@ public class Tutoriel : MonoBehaviour
             // valid the pick element step
             if (step1 && step2 && step3 && !step4 && !validStep) {
                 if (select.GetComponent<Text>().text.Contains("Personnage")) {
-                    if (GameObject.Find(select.GetComponent<Text>().text).GetComponent<Personnage>().item != "") {
+                    if (GameObject.Find(select.GetComponent<Text>().text).GetComponent<HMT_Personnage>().item != "") {
                         validStep = true;
                         step4 = true;
                         StartCoroutine(NextStep(1));
@@ -98,7 +98,7 @@ public class Tutoriel : MonoBehaviour
             // valid the drop of item step
             if (step1 && step2 && step3 && step4 && !step5 && !validStep) {
                 if (select.GetComponent<Text>().text.Contains("Personnage")) {
-                    if (GameObject.Find(select.GetComponent<Text>().text).GetComponent<Personnage>().item == "") {
+                    if (GameObject.Find(select.GetComponent<Text>().text).GetComponent<HMT_Personnage>().item == "") {
                         validStep = true;
                         step5 = true;
                         StartCoroutine(NextStep(1));

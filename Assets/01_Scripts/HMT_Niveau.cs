@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Niveau : MonoBehaviour
+public class HMT_Niveau : MonoBehaviour
 {
     public GameObject gameObjectNiveau;
     public GameObject gameObjectSelect;
@@ -118,13 +118,13 @@ public class Niveau : MonoBehaviour
             Carton.AddComponent<BoxCollider>().size = new Vector3(1.2f, 1.2f, 1);
             Carton.GetComponent<BoxCollider>().isTrigger = true;
             Carton.AddComponent<Rigidbody>().useGravity = false;
-            Carton.AddComponent<Carton>().gameObjectNiveau = gameObjectNiveau;
-            Carton.GetComponent<Carton>().gameObjectSelect = gameObjectSelect;
-            Carton.GetComponent<Carton>().ceinture = ceinture;
-            Carton.GetComponent<Carton>().pantalon = pantalon;
-            Carton.GetComponent<Carton>().chemise = chemise;
-            Carton.GetComponent<Carton>().chaussure = chaussure;
-            Carton.GetComponent<Carton>().montre = montre;
+            Carton.AddComponent<HMT_Carton>().gameObjectNiveau = gameObjectNiveau;
+            Carton.GetComponent<HMT_Carton>().gameObjectSelect = gameObjectSelect;
+            Carton.GetComponent<HMT_Carton>().ceinture = ceinture;
+            Carton.GetComponent<HMT_Carton>().pantalon = pantalon;
+            Carton.GetComponent<HMT_Carton>().chemise = chemise;
+            Carton.GetComponent<HMT_Carton>().chaussure = chaussure;
+            Carton.GetComponent<HMT_Carton>().montre = montre;
             if (gameObject.name == "Niveau1")
                 Carton.transform.localPosition = new Vector3(-11, 0.05f, -27);
             if (gameObject.name == "Niveau2")
@@ -159,15 +159,15 @@ public class Niveau : MonoBehaviour
         if (gameObject.name == "Niveau2")
             timer = 20;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")
-            GameObject.Find("SpawnerCeinture").GetComponent<SpawnElement>().isPicked = true;
+            GameObject.Find("SpawnerCeinture").GetComponent<HMT_SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")
-            GameObject.Find("SpawnerPantalon").GetComponent<SpawnElement>().isPicked = true;
+            GameObject.Find("SpawnerPantalon").GetComponent<HMT_SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")
-            GameObject.Find("SpawnerChemise").GetComponent<SpawnElement>().isPicked = true;
+            GameObject.Find("SpawnerChemise").GetComponent<HMT_SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1" || gameObject.name == "Niveau2" || gameObject.name == "Niveau3")
-            GameObject.Find("SpawnerMontre").GetComponent<SpawnElement>().isPicked = true;
+            GameObject.Find("SpawnerMontre").GetComponent<HMT_SpawnElement>().isPicked = true;
         if (gameObject.name == "Niveau1")
-            GameObject.Find("SpawnerChaussure").GetComponent<SpawnElement>().isPicked = true;
+            GameObject.Find("SpawnerChaussure").GetComponent<HMT_SpawnElement>().isPicked = true;
         gameObjectSelect.GetComponent<Text>().text = "";
         if (GameObject.Find("ToDestroy"))
             Destroy(GameObject.Find("ToDestroy"));
@@ -175,17 +175,17 @@ public class Niveau : MonoBehaviour
         ToDestroy.transform.parent = gameObjectNiveau.transform;
         if (gameObject.name == "Niveau1") {
             player1.transform.localPosition = new Vector3(0, 0.05f, 0);
-            player1.GetComponent<Personnage>().item = "";
+            player1.GetComponent<HMT_Personnage>().item = "";
         } else if (gameObject.name == "Niveau2") {
             player1.transform.localPosition = new Vector3(-3, 0.05f, 0);
-            player1.GetComponent<Personnage>().item = "";
+            player1.GetComponent<HMT_Personnage>().item = "";
             player2.transform.localPosition = new Vector3(3, 0.05f, 0);
-            player2.GetComponent<Personnage>().item = "";
+            player2.GetComponent<HMT_Personnage>().item = "";
         } else if (gameObject.name == "Niveau3") {
             player1.transform.localPosition = new Vector3(0, 0.05f, -3.75f);
-            player1.GetComponent<Personnage>().item = "";
+            player1.GetComponent<HMT_Personnage>().item = "";
             player2.transform.localPosition = new Vector3(0, 0.05f, 3.75f);
-            player2.GetComponent<Personnage>().item = "";
+            player2.GetComponent<HMT_Personnage>().item = "";
         }
         if (tuto && !tutoChecked) {
             StartCoroutine(CreateBox());

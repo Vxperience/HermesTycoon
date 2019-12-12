@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CameraPosInGame : MonoBehaviour
+public class HMT_CameraPosInGame : MonoBehaviour
 {
     public GameObject[] scene;
     

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Audio : MonoBehaviour
+public class HMT_Audio : MonoBehaviour
 {
     public bool isaudio;
     public float music; // manage the volume of the music

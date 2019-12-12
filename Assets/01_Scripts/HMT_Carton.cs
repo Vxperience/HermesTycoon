@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Carton : MonoBehaviour
+public class HMT_Carton : MonoBehaviour
 {
     public GameObject gameObjectNiveau;
     public GameObject gameObjectSelect;
@@ -144,12 +144,12 @@ public class Carton : MonoBehaviour
                 if (elementToCharge[i] != "done")
                     goodBox = false;
             if (goodBox)
-                gameObjectNiveau.GetComponent<Niveau>().nbCarton++;
+                gameObjectNiveau.GetComponent<HMT_Niveau>().nbCarton++;
             else
-                gameObjectNiveau.GetComponent<Niveau>().nbErreur--;
+                gameObjectNiveau.GetComponent<HMT_Niveau>().nbErreur--;
             if (selected)
                 gameObjectSelect.GetComponent<Text>().text = "";
-            gameObjectNiveau.GetComponent<Niveau>().updateScore = true;
+            gameObjectNiveau.GetComponent<HMT_Niveau>().updateScore = true;
             Destroy(gameObject);
         }
     }

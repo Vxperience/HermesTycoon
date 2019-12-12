@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class SpawnElement : MonoBehaviour
+public class HMT_SpawnElement : MonoBehaviour
 {
     public Sprite sprite;
     public string item;
@@ -24,7 +24,7 @@ public class SpawnElement : MonoBehaviour
         Element.AddComponent<SpriteRenderer>().sprite = sprite;
         Element.AddComponent<BoxCollider>().size = new Vector3(6, 6, 0.2f);
         Element.GetComponent<BoxCollider>().isTrigger = true;
-        Element.AddComponent<Element>().spawner = transform.gameObject;
+        Element.AddComponent<HMT_Element>().spawner = transform.gameObject;
         Element.transform.localPosition = new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z);
         Element.transform.localRotation = Quaternion.Euler(90, 0, 0);
         Element.transform.localScale = new Vector3(0, 0, 0);

@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Menu : MonoBehaviour
+public class HMT_Menu : MonoBehaviour
 {
     public GameObject[] scene;
     public GameObject cam;
@@ -62,7 +62,7 @@ public class Menu : MonoBehaviour
     {
         cam.GetComponent<AudioSource>().Play();
         PlayerPrefs.SetString("niveau", level);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("HMT_level");
     }
 
     // return to the menu
@@ -76,6 +76,7 @@ public class Menu : MonoBehaviour
     // quit the game
     public void QuitGame()
     {
+        Time.timeScale = 1;
         PlayerPrefs.DeleteKey("isendless");
         PlayerPrefs.DeleteKey("tuto");
         PlayerPrefs.DeleteKey("menuToLoad");
@@ -83,6 +84,6 @@ public class Menu : MonoBehaviour
         PlayerPrefs.DeleteKey("setaudio");
         PlayerPrefs.DeleteKey("music");
         PlayerPrefs.DeleteKey("game");
-        Application.Quit();
+        SceneManager.LoadScene(1);
     }
 }

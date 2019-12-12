@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Element : MonoBehaviour
+public class HMT_Element : MonoBehaviour
 {
     public GameObject spawner;
     public GameObject select;

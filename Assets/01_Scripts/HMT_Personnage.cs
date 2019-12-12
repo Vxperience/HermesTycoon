@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 
-public class Personnage : MonoBehaviour
+public class HMT_Personnage : MonoBehaviour
 {
     public Sprite[] sprite;
     public Animator animator;
@@ -147,7 +147,7 @@ public class Personnage : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             if (GameObject.Find(hit.transform.gameObject.name)) {
                 item = hit.transform.gameObject.name;
-                hit.transform.gameObject.GetComponent<Element>().spawner.GetComponent<SpawnElement>().isPicked = true;
+                hit.transform.gameObject.GetComponent<HMT_Element>().spawner.GetComponent<HMT_SpawnElement>().isPicked = true;
                 if (item == "ceinture")
                     currentItem.GetComponent<SpriteRenderer>().sprite = sprite[0];
                 else if (item == "pantalon")
@@ -189,8 +189,8 @@ public class Personnage : MonoBehaviour
             playerAudio.Play();
             yield return new WaitForSeconds(0.1f);
             if (hit.transform.gameObject.name == "Carton") {
-                hit.transform.GetComponent<Carton>().chargeElement.Add(item);
-                hit.transform.GetComponent<Carton>().newElement = true;
+                hit.transform.GetComponent<HMT_Carton>().chargeElement.Add(item);
+                hit.transform.GetComponent<HMT_Carton>().newElement = true;
             }
             currentItem.SetActive(false);
             item = "";
